@@ -4,7 +4,7 @@
   border-radius: 3px 3px 0px 0px;
   }
 
-.table-header span, .table-header input, .table-header-btn {
+.table-header span, .table-header input, .table-header-btn, tfoot, td {
   letter-spacing: .5px;
   }
 
@@ -22,7 +22,7 @@
   font-size: .9rem;
   }
 
-.table-header input, .table-header-btn {
+.table-header input, .table-header-btn, tfoot {
   border: none;
   }
 
@@ -32,6 +32,9 @@
   padding: 0px;
   background: none;
   font-weight: 600;
+  }
+
+.table-header-btn, td {
   font-size: .8rem;
   }
 
@@ -66,6 +69,10 @@ td, .sort-column {
   border-right: 1px solid #a9a9a9;
   }
 
+.sort-column:last-child, td:last-child {
+  border-right: none;
+  }
+
 th a, th a:hover, tfoot, select {
   color: #195a7c;
   }
@@ -84,4 +91,9 @@ th a, th a:hover {
 
 .sort-column {
   font-weight: 400;
+  }
+
+tfoot {
+  background-color: #dddddd;
+  font-weight: 500;
   }

@@ -19,6 +19,14 @@
     <script language="javascript" type="text/javascript" src="https://secure.bmtmicro.com/Templates/util.js"></script>
     <script language="javascript" type="text/javascript" src="https://affiliates-new.bmtmicro.com/js/calendar.js"></script>
     <script language="javascript" type="text/javascript" src="https://affiliates-new.bmtmicro.com/js/main.js"></script>
+    <style media="screen" type="text/css">
+      td[text] {
+        border-right: 1px solid #a9a9a9;
+      }
+      td[money] {
+        text-align: right;
+      }
+    </style>
   </head>
   <body>
     <!-- Blue background -->
@@ -120,6 +128,13 @@
                           ##TABLEDATA##
                         </tr>
                       </tbody>
+                      <tfoot>
+                        <tr class="table-total">
+                          <th>Total</th>
+                          <th scope="row" number>##TOTALQUANTITY##</th>
+                          <th scope="row" class="text-right" money>##TOTALAMOUNT##</th>
+                        </tr>
+                      </tfoot>
                     </table>
                   </div> <!-- /.row table-responsive -->
                 </form>
