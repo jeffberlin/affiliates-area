@@ -20,13 +20,45 @@
     <script language="javascript" type="text/javascript" src="https://affiliates-new.bmtmicro.com/js/calendar.js"></script>
     <script language="javascript" type="text/javascript" src="https://affiliates-new.bmtmicro.com/js/main.js"></script>
     <style media="screen" type="text/css">
-      td[text] {
+      td[text], td[date], td[money] {
         border-right: 1px solid #a9a9a9;
       }
       td[money] {
         text-align: right;
       }
+      td[date] {
+        text-align: center;
+      }
     </style>
+    <script language="javascript" type="text/javascript">
+      function submitForm (form) {
+        if (!CheckDateRange (form)) {
+          return (false);
+        }
+        form.submit ();
+        return (true);
+      }
+    </script>
+    <!-- <script language="javascript" type="text/javascript">
+      function showDetails(i) {
+        window.open("", "detailsPopUp", "location=no,scrollbars=yes,width=680,height=480,resizable=yes").focus();
+        document.bmtconfig.submit();
+      }
+      function checkFormat(form) {
+        switch (parseInt (form.FORMAT.value)) {
+          case 0:
+            form.target = "_blank";
+          break;
+          case 1:
+          case 2:
+          case 3:
+          default:
+          form.target = "";
+          break;
+        }
+        form.submit();
+      }
+    </script> -->
   </head>
   <body>
     <!-- Blue background -->
@@ -80,19 +112,19 @@
                 <div class="dropright">
                   <a class="dropdown-toggle sidebar-group" role="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Reports</a>
                   <div class="dropdown-menu dropdown-menu-right text-center sidebar-options" aria-labelledby="dropdownMenuButton">
-                    <a class="dropdown-item" href="https://affiliates-new.bmtmicro.com/affiliatesalesstart.html" style="color: #efa900;">Sales Summary</a>
-                    <a class="dropdown-item" href="https://affiliates-new.bmtmicro.com/transstart.html">Affiliate Transactions</a>
+                    <a class="dropdown-item" href="https://affiliates-new.bmtmicro.com/affiliatesalesstart.html">Sales Summary</a>
+                    <a class="dropdown-item" href="https://affiliates-new.bmtmicro.com/transstart.html" style="color: #efa900;">Affiliate Transactions</a>
                   </div> <!-- /.dropdown-menu dropdown-menu-right sidebar-options -->
                 </div> <!-- /.dropright -->
               </aside>
             </div> <!-- /.col-lg-2 -->
             <div class="col-lg-10 col-md-12 page-title">
-              <h4>Affiliate Sales Reports</h4>
+              <h4>Affiliate Transactions Report</h4>
               <div class="content-box">
-                <form name="daterange" action="https://affiliates-new.bmtmicro.com/servlets/Affiliates.SalesDetails" method="post" onSubmit="return CheckDateRange(this);">
+                <form name="transactions" method="post" action="https://affiliates-new.bmtmicro.com/servlets/Affiliates.Transactions" target="">
                   <input type="hidden" name="ROWTEMPLATEURL" value="##ROWTEMPLATEURL##" />
-                  <input type="hidden" name="NEXT_PAGE" value="https://affiliates-new.bmtmicro.com/affiliatesales.html" />
-                  <input type="hidden" name="ERROR_PAGE" value="https://affiliates-new.bmtmicro.com/error.html" />
+                  <input type="hidden" name="NEXT_PAGE" value="https://affiliates-new.bmtmicro.com/transactionstable.html">
+                  <input type="hidden" name="ERROR_PAGE" value="https://affiliates-new.bmtmicro.com/affiliateerror.html">
                   <div class="table-header">
                     <span>
                       From:&nbsp;
@@ -105,21 +137,24 @@
                       <img src="https://affiliates-new.bmtmicro.com/images/cal.gif" width="22" height="22" border="0" alt="Click Here to Pick up the date" onclick="show_calendar ('DATETO'); return (false);" onmouseover="this.style.cursor='pointer';" />
                     </span>
                     <span>
-                      <button class="table-header-btn" value="Get Sales Summary">Get Sales Summary</button>
+                      <button type="button" class="table-header-btn" value="Get Report" onclick="submitForm (transactions);">Get Account Transactions</button>
                     </span>
                   </div> <!-- /.table-header -->
                   <div class="row table-responsive" style="margin-left: auto; margin-right: auto;">
                     <table class="table" id="selection">
                       <thead>
                         <tr class="table-category">
-                          <th scope="col" class="sort-column text-center sortable sort" title="Sort on 'Product'" text>
-                            <a href="#" class="fdTableSortTrigger">Product</a>
+                          <th scope="col" class="sort-column text-center sortable sort" title="Sort on 'Product'" date>
+                            <a href="#" class="fdTableSortTrigger">Date</a>
                           </th>
-                          <th scope="col" class="sort-column text-center sortable sort" title="Sort on 'Units Sold'" number>
-                            <a href="#" class="fdTableSortTrigger">Units Sold</a>
+                          <th scope="col" class="sort-column text-center sortable sort" title="Sort on 'Units Sold'" text>
+                            <a href="#" class="fdTableSortTrigger">Description</a>
                           </th>
                           <th scope="col" class="sort-column text-center sortable sort" title="Sort on 'Units Sold'" money>
-                            <a href="#" class="fdTableSortTrigger">Total to Affiliate</a>
+                            <a href="#" class="fdTableSortTrigger">Amount</a>
+                          </th>
+                          <th scope="col" class="sort-column text-center sortable sort" title="Sort on 'Units Sold'" text>
+                            <a href="#" class="fdTableSortTrigger">Notes</a>
                           </th>
                         </tr>
                       </thead>
@@ -130,9 +165,9 @@
                       </tbody>
                       <tfoot>
                         <tr class="table-total">
-                          <th>Total</th>
-                          <th scope="row" class="text-center" number>##TOTALQUANTITY##</th>
-                          <th scope="row" class="text-right" money>##TOTALAMOUNT##</th>
+                          <th colspan="2">Total</th>
+                          <th scope="row" class="text-right">##TOTALAMOUNT##</th>
+                          <th scope="row">&nbsp;</th>
                         </tr>
                       </tfoot>
                     </table>
