@@ -15,34 +15,39 @@
     <link rel="stylesheet" href="https://affiliates-new.bmtmicro.com/css-2/menuSidebar.css">
     <link rel="stylesheet" href="https://affiliates-new.bmtmicro.com/css-2/footer.css">
     <link rel="stylesheet" href="https://affiliates-new.bmtmicro.com/css-2/responsive.css">
+    <link rel="stylesheet" href="https://affiliates-new.bmtmicro.com/css-2/table.css">
     <script language="javascript" type="text/javascript" src="https://secure.bmtmicro.com/Templates/util.js"></script>
     <script type="text/javascript" src="https://affiliates-new.bmtmicro.com/js/main.js"></script>
-    <style media="screen" type="text/css">
-      .content-box {
-        padding: 1rem;
-      }
-    </style>
-    <script language="javascript" type="text/javascript">
+    <script type="text/javascript" language="javascript">
       <!--
-      function uploadLogo (form) {
-        if (isBlank (form.FILENAME.value)) {
-          alert ("Please specify file to upload");
-          form.FILENAME.focus ();
-          return (false);
-        }
-        form.submit ();
-        return (true);
+      function joinVendor (vendor) {
+        document.productlistform.JOINVENDORID.value = vendor;
+        document.productlistform.submit();
+      }
+      function selectPage (page) {
+        document.productlistform.PAGE.value = page;
+        document.productlistform.submit();
+      }
+      function selectCategory () {
+        document.productlistform.CATEGORY.value = document.productlistform.CATEGORY_SELECTOR.options[document.productlistform.CATEGORY_SELECTOR.selectedIndex].value;
+        document.productlistform.PAGE.value = 1;
+        document.productlistform.submit();
+      }
+      function showLink (Orderlink,Demolink,Productlink) {
+        var msgWindow = window.open("https://affiliates-new.bmtmicro.com/popup.jsp?oL="+escape(Orderlink)+"&dL="+escape(Demolink)+"&pL="+escape(Productlink), "detailsPopUp", "location=no,width=700,height=275,resizable=yes");
+        msgWindow.focus();
       }
 
-      function removeLogo (form) {
-        form.FILENAME.value = "";
-        form.submit ();
-        return (true);
+      function init (form) {
+        if ("##FILTERBY##".indexOf ('#') == -1) {
+          SetSelectorValue (form.FILTERBY,"##FILTERBY##");
+          form.FILTERMASK.value = "##FILTERMASK##";
+        }
       }
       //-->
     </script>
   </head>
-  <body>
+  <body onLoad="init(document.productlistform);">
     <!-- Blue background -->
     <div class="blue-bg"></div>
 
@@ -87,8 +92,8 @@
                   <a class="dropdown-toggle sidebar-group" role="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Products</a>
                   <div class="dropdown-menu dropdown-menu-right text-center sidebar-options" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="https://affiliates-new.bmtmicro.com/joinedonlystart.html">Joined Product List</a>
-                    <a class="dropdown-item" href="https://affiliates-new.bmtmicro.com/productliststart.html">Full Product List</a>
-                    <a class="dropdown-item" href="https://affiliates-new.bmtmicro.com/logouploadstart.html" style="color: #efa900;">Logo Uploader</a>
+                    <a class="dropdown-item" href="https://affiliates-new.bmtmicro.com/productliststart.html" style="color: #efa900;">Full Product List</a>
+                    <a class="dropdown-item" href="https://affiliates-new.bmtmicro.com/logouploadstart.html">Logo Uploader</a>
                   </div> <!-- /.dropdown-menu dropdown-menu-right sidebar-options -->
                 </div> <!-- /.dropright -->
                 <div class="dropright">
@@ -101,22 +106,30 @@
               </aside>
             </div> <!-- /.col-lg-2 -->
             <div class="col-lg-10 col-md-12 page-title">
-              <h4>Upload Logo</h4>
+              <h4>Affiliate Product List</h4>
               <div class="content-box">
-                <div class="text-center" style="margin-bottom: 1rem;">
-                  <img src="https://affiliates-new.bmtmicro.com/servlets/Affiliates.LogoImage?DEFAULT=https://secure.bmtmicro.com/Templates/TestLogo.png&AID=##AID##" style="margin-bottom: 1rem;" />
-                  <form name="LogoForm" enctype="multipart/form-data" method="post" action="https://affiliates-new.bmtmicro.com/servlets/Affiliates.LogoImage">
-                    <input type="hidden" name="NEXT_PAGE" value="https://affiliates-new.bmtmicro.com/logoupload.html" />
-                    <input type="hidden" name="ERROR_PAGE" value="https://affiliates-new.bmtmicro.com/affiliateerror.html" />
+                <form name="productlistform" method="post" action="https://affiliates-new.bmtmicro.com/servlets/Affiliates.ProductList">
+                  <input type="hidden" name="NEXT_PAGE" value="https://affiliates-new.bmtmicro.com/productlisttable.html" />
+                  <input type="hidden" name="ERROR_PAGE" value="https://affiliates-new.bmtmicro.com/affiliateerror.html" />
+                  <input type="hidden" name="PAGE" value="##PAGE##">
+                  <input type="hidden" name="JOINEDONLY" value="##JOINEDONLY##" />
+                  <input type="hidden" name="JOINVENDORID" value="0" />
+                  <input type="hidden" name="CATEGORY" value="##CATEGORY##" />
+                  <div class="table-header">
+                    <span>Category:&nbsp;##CATEGORYSELECTOR##</span>
                     <span>
-                      <label>Filename:&nbsp;</label>
-                      <input type="file" name="FILENAME" size="50" style="margin-right: .5rem;" />
+                      Filter Type:&nbsp;
+                      <select name="FILTERBY">
+                        <option value="1">Vendor Name</option>
+                        <option value="2">Product Name</option>
+                        <option value="3">Products since (YYYY-MM-DD)</option>
+                      </select>
+                      &nbsp;&nbsp;Filter By:&nbsp;
+                      <input type="text" name="FILTERMASK" />&nbsp;
+                      <button class="table-header-btn" value="Get Products List">Get Products List</button>
                     </span>
-                    <input type="button" name="button" onclick="uploadLogo (LogoForm);" value="Upload Logo" class="grey-btn" />
-                    <input type="button" name="button" onclick="removeLogo (LogoForm);" value="Remove Logo" class="grey-btn" />
-                  </form>
-                </div> <!-- /.text-center -->
-                <p style="font-size: .9rem;">You might have to refresh the page to see the uploaded logo. Only one logo can be used per affiiate account. Logo size should be a maximum of 700X200. Larger images will be sized to fit. Logo images will only work when using shopping cart 10 (parameter: CID=10). If you have any questions regarding custom logo use, please email <a href="mailto:webmaster@bmtmicro.com">webmaster@bmtmicro.com</a> for assistance.</p>
+                  </div> <!-- /.table-header -->
+                </form>
               </div> <!-- /.content-box -->
             </div> <!-- /.col-lg-10 col-md-12 page-title -->
           </div> <!-- /.row justify-content-start -->

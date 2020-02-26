@@ -16,31 +16,8 @@
     <link rel="stylesheet" href="https://affiliates-new.bmtmicro.com/css-2/footer.css">
     <link rel="stylesheet" href="https://affiliates-new.bmtmicro.com/css-2/responsive.css">
     <script language="javascript" type="text/javascript" src="https://secure.bmtmicro.com/Templates/util.js"></script>
+    <script type="text/javascript" src="https://affiliates-new.bmtmicro.com/js/vhelp.js"></script>
     <script type="text/javascript" src="https://affiliates-new.bmtmicro.com/js/main.js"></script>
-    <style media="screen" type="text/css">
-      .content-box {
-        padding: 1rem;
-      }
-    </style>
-    <script language="javascript" type="text/javascript">
-      <!--
-      function uploadLogo (form) {
-        if (isBlank (form.FILENAME.value)) {
-          alert ("Please specify file to upload");
-          form.FILENAME.focus ();
-          return (false);
-        }
-        form.submit ();
-        return (true);
-      }
-
-      function removeLogo (form) {
-        form.FILENAME.value = "";
-        form.submit ();
-        return (true);
-      }
-      //-->
-    </script>
   </head>
   <body>
     <!-- Blue background -->
@@ -88,7 +65,7 @@
                   <div class="dropdown-menu dropdown-menu-right text-center sidebar-options" aria-labelledby="dropdownMenuButton">
                     <a class="dropdown-item" href="https://affiliates-new.bmtmicro.com/joinedonlystart.html">Joined Product List</a>
                     <a class="dropdown-item" href="https://affiliates-new.bmtmicro.com/productliststart.html">Full Product List</a>
-                    <a class="dropdown-item" href="https://affiliates-new.bmtmicro.com/logouploadstart.html" style="color: #efa900;">Logo Uploader</a>
+                    <a class="dropdown-item" href="https://affiliates-new.bmtmicro.com/logouploadstart.html">Logo Uploader</a>
                   </div> <!-- /.dropdown-menu dropdown-menu-right sidebar-options -->
                 </div> <!-- /.dropright -->
                 <div class="dropright">
@@ -101,23 +78,9 @@
               </aside>
             </div> <!-- /.col-lg-2 -->
             <div class="col-lg-10 col-md-12 page-title">
-              <h4>Upload Logo</h4>
-              <div class="content-box">
-                <div class="text-center" style="margin-bottom: 1rem;">
-                  <img src="https://affiliates-new.bmtmicro.com/servlets/Affiliates.LogoImage?DEFAULT=https://secure.bmtmicro.com/Templates/TestLogo.png&AID=##AID##" style="margin-bottom: 1rem;" />
-                  <form name="LogoForm" enctype="multipart/form-data" method="post" action="https://affiliates-new.bmtmicro.com/servlets/Affiliates.LogoImage">
-                    <input type="hidden" name="NEXT_PAGE" value="https://affiliates-new.bmtmicro.com/logoupload.html" />
-                    <input type="hidden" name="ERROR_PAGE" value="https://affiliates-new.bmtmicro.com/affiliateerror.html" />
-                    <span>
-                      <label>Filename:&nbsp;</label>
-                      <input type="file" name="FILENAME" size="50" style="margin-right: .5rem;" />
-                    </span>
-                    <input type="button" name="button" onclick="uploadLogo (LogoForm);" value="Upload Logo" class="grey-btn" />
-                    <input type="button" name="button" onclick="removeLogo (LogoForm);" value="Remove Logo" class="grey-btn" />
-                  </form>
-                </div> <!-- /.text-center -->
-                <p style="font-size: .9rem;">You might have to refresh the page to see the uploaded logo. Only one logo can be used per affiiate account. Logo size should be a maximum of 700X200. Larger images will be sized to fit. Logo images will only work when using shopping cart 10 (parameter: CID=10). If you have any questions regarding custom logo use, please email <a href="mailto:webmaster@bmtmicro.com">webmaster@bmtmicro.com</a> for assistance.</p>
-              </div> <!-- /.content-box -->
+              <h4>An error occurred</h4>
+              <p>##MESSAGE##</p>
+              <p>Thank you.</p>
             </div> <!-- /.col-lg-10 col-md-12 page-title -->
           </div> <!-- /.row justify-content-start -->
         </article>
