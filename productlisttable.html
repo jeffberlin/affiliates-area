@@ -18,6 +18,20 @@
     <link rel="stylesheet" href="https://affiliates-new.bmtmicro.com/css-2/table.css">
     <script language="javascript" type="text/javascript" src="https://secure.bmtmicro.com/Templates/util.js"></script>
     <script type="text/javascript" src="https://affiliates-new.bmtmicro.com/js/main.js"></script>
+    <style media="screen" type="text/css">
+      .hdrrowb input {
+        border-radius: 8px;
+        border: 1px solid #000000;
+        padding: .2rem .4rem;
+        background-color: #dddddd;
+        transition: all .2s ease;
+        font-size: .8rem;
+        letter-spacing: .5px;
+      }
+      .hdrrowb input:hover {
+        background-color: #a9a9a9;
+      }
+    </style>
     <script type="text/javascript" language="javascript">
       <!--
       function joinVendor (vendor) {
@@ -124,11 +138,48 @@
                         <option value="2">Product Name</option>
                         <option value="3">Products since (YYYY-MM-DD)</option>
                       </select>
-                      &nbsp;&nbsp;Filter By:&nbsp;
-                      <input type="text" name="FILTERMASK" />&nbsp;
+                    </span>
+                    <span>
+                      Filter By:&nbsp;
+                      <input type="text" name="FILTERMASK" />
+                    </span>
+                    <span>
                       <button class="table-header-btn" value="Get Products List">Get Products List</button>
                     </span>
                   </div> <!-- /.table-header -->
+                  <div class="row table-responsive" style="margin-left: auto; margin-right: auto;">
+                    <table class="table" id="selection">
+                      <thead>
+                        <tr class="table-category">
+                          <th scope="col" class="sort-column text-center sortable sort" title="Sort on 'Product'" text>
+                            <a href="#" class="fdTableSortTrigger">Product Name</a>
+                          </th>
+                          <th scope="col" class="sort-column text-center sortable sort" title="Sort on 'Product'" money>
+                            <a href="#" class="fdTableSortTrigger">List Price</a>
+                          </th>
+                          <th scope="col" class="sort-column text-center sortable sort" title="Sort on 'Product'" number>
+                            <a href="#" class="fdTableSortTrigger">Percentage</a>
+                          </th>
+                          <th scope="col" class="sort-column text-center sortable sort" title="Sort on 'Product'" money>
+                            <a href="#" class="fdTableSortTrigger">To Affiliate</a>
+                          </th>
+                          <th scope="col" class="sort-column text-center sortable sort" title="Sort on 'Product'" text>
+                            <a href="#" class="fdTableSortTrigger">Link</a>
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          ##PRODUCTLIST##
+                        </tr>
+                      </tbody>
+                      <tfoot>
+                        <tr class="table-total">
+                          <th colspan="5" style="font-size: .8rem;"> ##PAGESELECTOR##</th>
+                        </tr>
+                      </tfoot>
+                    </table>
+                  </div> <!-- /.row table-responsive -->
                 </form>
               </div> <!-- /.content-box -->
             </div> <!-- /.col-lg-10 col-md-12 page-title -->
