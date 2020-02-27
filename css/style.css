@@ -28,7 +28,7 @@ input, textarea {
   padding: .25rem .5rem;
   }
 
-input, textarea, .light-btn, .grey-btn {
+input, input::placeholder, textarea, .light-btn, .grey-btn {
   font-size: .8rem;
   }
 
@@ -117,7 +117,7 @@ select:hover {
 
 .page-title h4,
 .page-title p,
-h5, input, textarea, .light-btn, .grey-btn {
+h5, input, textarea, .light-btn, .grey-btn, input::placeholder {
   letter-spacing: .5px;
   }
 
