@@ -82,6 +82,40 @@
               <h4>Create Affiliate Account</h4>
               <p>This form is for <b>new affiliates only</b>. If you have previously signed up to be a BMT Micro Affiliate please login <a href="https://affiliates-new.bmtmicro.com/">here</a>. If you do not know how to login please contact our <a href="mailto:webmaster@bmtmicro.com">webmaster</a>.</p>
             </div> <!-- /.col-lg-10 col-md-12 page-title -->
+            <div class="content-box">
+              <form name="form1" method="post" action="https://affiliates-new.bmtmicro.com/servlets/Affiliates.Signup">
+                <input type="hidden" name="NEXT_PAGE" value="https://affiliates-new.bmtmicro.com/newloginstart.html">
+                <input type="hidden" name="ERROR_PAGE" value="https://affiliates-new.bmtmicro.com/newaffiliateerror.html">
+                <p>Step 1: Read our <a href="http://www.bmtmicro.com/affiliate%20-terms.html" target="_blank">Terms and Conditions</a> and then choose your Login Name and Password.<p>
+                <span>
+                  <label>Login Name:&nbsp;</label>
+                  <input name="LOGINNAME" size="35" maxlength="20" style="margin-bottom: 1rem;">
+                </span>
+                <br>
+                <span>
+                  <label>Email Address:&nbsp;</label>
+                  <input name="EMAIL" size="35" maxlength="50" style="margin-bottom: 1rem;" >
+                </span>
+                <br>
+                <span>
+                  <label>Password:&nbsp;</label>
+                  <input name="PASSWORD" type="password" size="35" maxlength="16" autocomplete="off" style="margin-bottom: 1rem;">
+                </span>
+                <br>
+                <span>
+                  <label>Re-type Password:&nbsp;</label>
+                  <input name="PASSWORD2" type="password" size="35" maxlength="16" autocomplete="off" style="margin-bottom: 1rem;">
+                </span>
+                <br>
+                <span>
+                  <input type="checkbox" name="TERMS" value="" style="margin-bottom: 2rem;">&nbsp;I have read and agree to the Terms and Conditions.
+                </span>
+                <br>
+                <span>
+                  <input type="button" value="Go to Step 2" onclick="process(form)" name="button" class="light-btn">
+                </span>
+              </form>
+            </div> <!-- /.content-box -->
           </div> <!-- /.row justify-content-start -->
         </article>
       </div> <!-- /.container-fluid body-content -->
