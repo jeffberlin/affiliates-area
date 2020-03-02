@@ -16,7 +16,8 @@
     <link rel="stylesheet" href="https://affiliates-new.bmtmicro.com/css-2/footer.css">
     <link rel="stylesheet" href="https://affiliates-new.bmtmicro.com/css-2/responsive.css">
     <script language="javascript" type="text/javascript" src="https://secure.bmtmicro.com/Templates/util.js"></script>
-    <script type="text/javascript" src="https://affiliates-new.bmtmicro.com/js/main.js"></script>
+    <script language="javascript" type="text/javascript" src="https://secure.bmtmicro.com/servlets/System.Util"></script>
+    <script language="javascript" type="text/javascript" src="https://secure.bmtmicro.com/servlets/CustomForms.CustomForm"></script>
     <style media="screen" type="text/css">
       .content-box {
         padding: 1rem;
@@ -24,83 +25,55 @@
     </style>
     <script language="javascript" type="text/javascript">
       <!--
-      function init (form) {
-        for (i = 0; i < form.COUNTRY.options.length; i++) {
-          if (form.COUNTRY.options[i].value == "##COUNTRY##") {
-            form.COUNTRY.options[i].selected = true;
-            break;
-          }
+      function process(form){
+        if (isBlank (form.LOGINNAME.value)) {
+          alert ("You must input a Login Name");
+          form.LOGINNAME.focus ();
+          return (false);
         }
-        for (i = 0; i < form.STATE.options.length; i++) {
-          if (form.STATE.options[i].value == "##STATE##") {
-            form.STATE.options[i].selected = true;
-            break;
-          }
+        if (form.LOGINNAME.value.length < 4) {
+          alert ("The login name must be at least 4 characters.");
+          form.LOGINNAME.focus ();
+          return (false);
         }
-      }
-
-      function process(form) {
-        if (isBlank (form.ADDRESS1.value)) {
-          alert("You must input an Address");
-          form.ADDRESS1.focus();
+        if (isBlank (form.EMAIL.value)) {
+          alert("You must input an Email Address");
+          form.EMAIL.focus();
           return false;
         }
-
-        if (isBlank (form.CITY.value)) {
-          alert("You must input a City");
-          form.CITY.focus();
+        if (!isValidEmail (form.EMAIL.value)) {
+          alert("You must input a valid Email Address");
+          form.EMAIL.focus();
           return false;
         }
-
-        if (isBlank (form.ZIP.value)) {
-          alert("You must input a Postal Code");
-          form.ZIP.focus();
-          return false;
+        if (form.TERMS.checked != true) {
+          alert ("Please take the time to read the Terms and Conditions for BMT Micro Affiliates!");
+          form.TERMS.focus ();
+          return (false);
         }
-
-        if (isBlank (form.COUNTRY.value)) {
-          alert("You must input a Country");
-          form.COUNTRY.focus();
-          return false;
-        }
-
         if (isBlank (form.PASSWORD.value)) {
           alert ("You must input a Password used to access the BMT Micro Affiliate Pages");
           form.PASSWORD.focus();
           return (false);
         }
-
         if (form.PASSWORD.value.length < 4) {
           alert ("The password must be at least 4 characters.");
           form.PASSWORD.focus();
           return (false);
         }
-
         if (form.PASSWORD2.value != form.PASSWORD.value) {
           alert ("Your Password does not match the second Password field. Please retype your password and try again.");
           form.PASSWORD.focus();
           return (false);
         }
 
-        if (isBlank (form.EMAIL.value)) {
-          alert("You must input an Email Address");
-          form.EMAIL.focus();
-          return false;
-        }
-
-        if (!isValidEmail (form.EMAIL.value)) {
-          alert("You must input a valid Email Address");
-          form.EMAIL.focus();
-          return false;
-        }
-
-        form.submit()
-        return true
+        form.submit();
+        return (true);
       }
       // -->
     </script>
   </head>
-  <body onload="init (document.form1)">
+  <body>
     <!-- Blue background -->
     <div class="blue-bg"></div>
 
@@ -115,106 +88,44 @@
               </aside>
             </div> <!-- /.col-lg-2 -->
             <div class="col-lg-10 col-md-12 page-title">
-              <h4>Account Information</h4>
+              <h4>Affiliate Signup</h4>
+              <p>This form is for new affiliates only. If you have previously signed up to be a BMT Micro Affiliate, please login <a href="https://affiliates-new.bmtmicro.com">here</a>. If you do not know how to log in, please contact our webmaster.</p>
+              <p>Please read our <a href="https://affiliates-new.bmtmicro.com/NewSignup/affiliateterms.html" target="_blank">Affiliate Terms</a>, then choose your Login Name and Password.</p>
               <div class="content-box">
-                <form name="form1" method="post" action="https://affiliates.bmtmicro.com/servlets/Affiliates.Account">
-                  <input type="hidden" name="ACTION" value="11" />
-                  <input type="hidden" name="NEXT_PAGE" value="https://affiliates.bmtmicro.com/main.html">
-                  <input type="hidden" name="ERROR_PAGE" value="https://affiliates.bmtmicro.com/newaffiliateerror.html">
-                  <input type="hidden" name="EMAILTEMPLATE" value="https://affiliates.bmtmicro.com/newaffiliate.txt">
+                <form name="form1" method="post" action="https://affiliates-new.bmtmicro.com/servlets/Affiliates.Signup">
+                  <input type="hidden" name="NEXT_PAGE" value="https://affiliates-new.bmtmicro.com/NewSignup/newloginstart.html" />
+                  <input type="hidden" name="ERROR_PAGE" value="https://affiliates-new.bmtmicro.com/NewSignup/affiliatesignuperror.html" />
                   <div class="row" style="margin-bottom: 2rem;">
                     <div class="col-4">
-                      <span>
-                        <label style="margin-bottom: 1rem;">Affiliate ID:&nbsp;</label>
-                        <input name="AFFILIATEID" TYPE="hidden" value="##AFFILIATEID##">##AFFILIATEID##
-                      </span>
-                      <br>
-                      <span>
-                        <label>Company:&nbsp;</label>
-                        <input name="COMPANY" size="35" maxlength="50" value="##COMPANY##" style="margin-bottom: 1rem;">
-                      </span>
-                      <br>
-                      <span>
-                        <label>Name:&nbsp;</label>
-                        <input name="NAME" size="35" maxlength="50" value="##NAME##" style="margin-bottom: 1rem;">
-                      </span>
-                      <br>
-                      <span>
-                        <label>Address 1:&nbsp;</label>
-                        <input name="ADDRESS1" size="35" maxlength="50" value="##ADDRESS1##" style="margin-bottom: 1rem;">
-                      </span>
-                      <br>
-                      <span>
-                        <label>Address 2:&nbsp;</label>
-                        <input name="ADDRESS2" size="35" maxlength="50" value="##ADDRESS2##">
-                      </span>
-                    </div> <!-- /.col-4 -->
-                    <div class="col-4">
-                      <span>
-                        <label>City:&nbsp;</label>
-                        <input name="CITY" size="35" maxlength="50" value="##CITY##" style="margin-bottom: 1rem;">
-                      </span>
-                      <br>
-                      <span>
-                        <label>State/Province:&nbsp;</label>
-                        <select NAME="STATE" style="margin-bottom: 1rem;">##IMPORT("Import.StateOptions")##</select>
-                      </span>
-                      <br>
-                      <span>
-                        <label>Country:&nbsp;</label>
-                        <select name="COUNTRY" style="margin-bottom: 1rem;">##IMPORT("Import.CountryOptions")##</select>
-                      </span>
-                      <br>
-                      <span>
-                        <label>ZIP/Postal Code:&nbsp;</label>
-                        <input name="ZIP" size="10" maxlength="50" value="##ZIP##">
-                      </span>
-                    </div> <!-- /.col-4 -->
-                  </div> <!-- /.row -->
-                  <div class="row" style="margin-bottom: 2rem;">
-                    <div class="col-4">
-                      <h5>Contact Information</h5>
-                      <span>
-                        <label>Phone:&nbsp;</label>
-                        <input name="PHONE" size="35" maxlength="50" value="##PHONE##" style="margin-bottom: 1rem;">
-                      </span>
-                      <br>
-                      <span>
-                        <label>Fax:&nbsp;</label>
-                        <input name="FAX" size="35" maxlength="50" value="##FAX##" style="margin-bottom: 1rem;">
-                      </span>
-                      <br>
-                      <span>
-                        <label>Email:&nbsp;</label>
-                        <input name="EMAIL" size="35" maxlength="50" value="##EMAIL##" style="margin-bottom: 1rem;">
-                      </span>
-                      <br>
-                      <span>
-                        <label>Website:&nbsp;</label>
-                        <input name="WEBADDRESS" size="35" maxlength="200" value="##WEBADDRESS##">
-                      </span>
-                    </div> <!-- /.col-4 -->
-                    <div class="col-4">
-                      <h5>Login Information</h5>
                       <span>
                         <label>Login Name:&nbsp;</label>
-                        <input name="LOGINNAME" type="hidden" value="##LOGINNAME##" style="margin-bottom: 1rem;">##LOGINNAME##
+                        <input type="text" name="LOGINNAME" size="35" style="margin-bottom: 1rem;" />
                       </span>
                       <br>
                       <span>
-                        <label>New Password:&nbsp;</label>
-                        <input name="PASSWORD" type="password" size="35" maxlength="16" value="##PASSWORD##" autocomplete="off" style="margin-bottom: 1rem;">
+                        <label>Email Address:&nbsp;</label>
+                        <input type="text" name="EMAIL" size="35" />
+                      </span>
+                    </div> <!-- /.col-4 -->
+                    <div class="col-4">
+                      <span>
+                        <label>Password:&nbsp;</label>
+                        <input type="password" name="PASSWORD" autocomplete="off" size="35" style="margin-bottom: 1rem;" />
                       </span>
                       <br>
                       <span>
                         <label>Confirm Password:&nbsp;</label>
-                        <input name="PASSWORD2" type="password" size="35" maxlength="16" value="##PASSWORD##" autocomplete="off">
+                        <input type="password" name="PASSWORD2" autocomplete="off" size="35" />
                       </span>
                     </div> <!-- /.col-4 -->
+                    <span>
+                      <input type="checkbox" name="TERMS" value="" />&nbsp;
+                      I have read and agree to the Affiliate Terms.
+                    </span>
                   </div> <!-- /.row -->
                   <div class="row">
                     <div class="col-8 text-center">
-                      <input type="button" class="light-btn" value="Submit Form" onClick="process(form)" name="button" >
+                      <input type="button" name="button" value="Continue" class="light-btn" onclick="process(form)"  />
                     </div> <!-- /.col-8 -->
                   </div> <!-- /.row -->
                 </form>
