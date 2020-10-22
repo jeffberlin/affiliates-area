@@ -35,9 +35,9 @@
           <div class="box-style">
             <div class="affiliate-login-box" style="background-color: rgba(255, 255, 255, 0.3);">
               <form action="https://affiliates-new.bmtmicro.com/servlets/Affiliates.Login" method="post">
-                <input type="hidden" name="NEXT_PAGE" value="https://affiliates-new.bmtmicro.com/main.jsp"/>
-                <input type="hidden" name="ERROR_PAGE" value="https://affiliates-new.bmtmicro.com/login-lost-password-error.jsp"/>
-                <input type="HIDDEN" name="SIGNUP_PAGE" value="https://affiliates-new.bmtmicro.com/new-affiliate-signup.jsp"/>
+                <input type="hidden" name="NEXT_PAGE" value="https://affiliates-new.bmtmicro.com/main.jsp">
+                <input type="hidden" name="ERROR_PAGE" value="https://affiliates-new.bmtmicro.com/login-error.jsp">
+                <input type="hidden" name="SIGNUP_PAGE" value="https://affiliates-new.bmtmicro.com/new-affiliate-signup.jsp">
                 <h4 class="text-center">Affiliate Log In</h4>
                 <div class="username">
                   <label>Login:</label>
@@ -64,7 +64,7 @@
       <footer class="footer container-fluid">
         <div class="bottom-footer-content row text-center align-items-center">
           <div class="copyright col">
-            <p>BMT Micro, Inc. Copyright © 1992 - ${yearNow}</p>
+            <p>BMT Micro, Inc. Copyright &copy; 1992 - ${yearNow}</p>
           </div> <!-- /.copyright col -->
         </div> <!-- /.bottom-footer-content row text-center align-items-center -->
       </footer>
