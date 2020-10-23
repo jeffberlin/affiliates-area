@@ -1,5 +1,5 @@
 <%@ include file="/includes/core.jsp" %>
-<c:if test="${empty cookie['BMTMicro.Affiliates.VendorID'].value}">
+<c:if test="${empty cookie['BMTMicro.Affiliates.AffiliateID'].value}">
   <script>
     window.location = "https://affiliates-new.bmtmicro.com/"; // Redirect to login page if this page is accessed and the vendor is not logged in
   </script>
@@ -12,7 +12,7 @@
         ${URLDecoder.decode(cookie['BMTMicro.Affiliates.Name'].value)}
       </a>
       <div class="dropdown-menu dropdown-menu-right text-center sidebar-options" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="https://affiliates-new.bmtmicro.com/chooseloginstart.jsp">My Account</a>
+        <a class="dropdown-item" href="https://affiliates-new.bmtmicro.com/account.jsp">My Account</a>
         <a class="dropdown-item" href="https://affiliates-new.bmtmicro.com/logout.jsp">Log Out</a>
       </div> <!-- /.dropdown-menu dropdown-menu-right sidebar-options -->
     </div> <!-- /.dropright -->

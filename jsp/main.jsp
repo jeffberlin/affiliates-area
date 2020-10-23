@@ -10,12 +10,9 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <title>BMT Micro Affiliate Center</title>
+    <title>BMT Micro Affiliates Center</title>
     <%@ include file="/includes/bootstrap_top_script.html" %>
-    <link rel="stylesheet" href="https://affiliates-new.bmtmicro.com/css/style.css"/>
-    <link rel="stylesheet" href="https://affiliates-new.bmtmicro.com/css/menuSidebar.css"/>
-    <link rel="stylesheet" href="https://affiliates-new.bmtmicro.com/css/footer.css"/>
-    <link rel="stylesheet" href="https://affiliates-new.bmtmicro.com/css/responsive.css"/>
+    <%@ include file="/includes/style_menu_footer.html" %>
     <script src="https://secure.bmtmicro.com/Templates/util.js"></script>
     <script src="https://affiliates-new.bmtmicro.com/js/vhelp.js"></script>
   </head>
