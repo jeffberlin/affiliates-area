@@ -28,7 +28,7 @@ input, textarea {
   padding: .25rem .5rem;
   }
 
-input, input::placeholder, textarea, .light-btn, .grey-btn {
+input, input::placeholder, textarea, .save-btn, .grey-btn {
   font-size: .8rem;
   }
 
@@ -36,7 +36,7 @@ input, textarea, select {
   border: 1px solid #a9a9a9;
   }
 
-input, textarea, select, .content-box, .light-btn, .tab-box {
+input, textarea, select, .content-box, .save-btn, .tab-box {
   border-radius: 3px;
   border-radius: 3px;
 	-webkit-border-radius: 3px;
@@ -45,7 +45,7 @@ input, textarea, select, .content-box, .light-btn, .tab-box {
 	-o-border-radius: 3px;
 }
 
-input:focus, textarea:focus, select:focus, .light-btn {
+input:focus, textarea:focus, select:focus, .save-btn {
   border: 1px solid #195a7c;
   }
 
@@ -55,7 +55,7 @@ select {
   color: #195a7c;
   }
 
-select, .main-raised, .light-btn {
+select, .main-raised, .save-btn {
   background: #ffffff;
   }
 
@@ -98,6 +98,11 @@ select:hover {
   box-shadow: 0px 2px 7px 2px rgba(0, 0, 0, 0.1);
   }
 
+.content-box {
+	max-height: calc(100vh - 260px);
+	min-height: 290px;
+	}
+
 .nav {
   flex-wrap: nowrap;
   }
@@ -114,30 +119,30 @@ select:hover {
 
 /*  */
 
-.page-title h4, h5, .light-btn:hover {
+.page-title h4, h5, .save-btn:hover {
   color: #ef9a00;
   }
 
 .page-title h4,
 .page-title p,
-h5, input, textarea, .light-btn, .grey-btn, input::placeholder {
+h5, input, textarea, .save-btn, .grey-btn, input::placeholder {
   letter-spacing: .5px;
   }
 
-.light-btn {
+.save-btn {
   box-shadow: 0 0 4px 0 rgba(17, 22, 26, .16), 0 2px 4px 0 rgba(17, 22, 26, .08), 0 4px 8px 0 rgba(17, 22, 26, .08);
   -webkit-box-shadow: 0 0 4px 0 rgba(17, 22, 26, .16), 0 2px 4px 0 rgba(17, 22, 26, .08), 0 4px 8px 0 rgba(17, 22, 26, .08);
   padding: .3rem .75rem;
   }
 
-.light-btn:hover {
+.save-btn:hover {
   box-shadow: 0 2px 16px 2px rgba(17, 22, 26, .16), 0 2px 4px 0 rgba(17, 22, 26, .08), 0 8px 14px 0 rgba(17, 22, 26, .08);
   -webkit-box-shadow: 0 2px 16px 2px rgba(17, 22, 26, .16), 0 2px 4px 0 rgba(17, 22, 26, .08), 0 8px 14px 0 rgba(17, 22, 26, .08);
   -moz-box-shadow: 0 2px 16px 2px rgba(17, 22, 26, .16), 0 2px 4px 0 rgba(17, 22, 26, .08), 0 8px 14px 0 rgba(17, 22, 26, .08);
   border: 1px solid #efa900;
   }
 
-.light-btn, .grey-btn {
+.save-btn, .grey-btn {
   transition: all .2s ease;
   }
 

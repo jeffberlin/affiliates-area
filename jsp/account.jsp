@@ -16,19 +16,20 @@
     <link rel="stylesheet" href="https://affiliates-new.bmtmicro.com/css/addPages.css"/>
     <link rel="stylesheet" href="https://affiliates-new.bmtmicro.com/css/tabOptions.css"/>
     <script src="https://secure.bmtmicro.com/Templates/util.js"></script>
+    <script src="https://affiliates-new.bmtmicro.com/js/main.js"></script>
     <script>
       function init (form){
-        form.ORDERNOTIFICATIONS_CHK.checked = (${param.ORDERNOTIFICATIONS} != 0);
-        form.VENDOREMAIL_CHK.checked = (${param.VENDOREMAIL} != 0);
+        form.ORDERNOTIFICATIONS_CHK.checked = (${requestScope.ORDERNOTIFICATIONS} != 0);
+        form.VENDOREMAIL_CHK.checked = (${requestScope.VENDOREMAIL} != 0);
 
         for (i = 0; i < form.COUNTRY.options.length; i++) {
-          if (form.COUNTRY.options[i].value == "${param.COUNTRY}") {
+          if (form.COUNTRY.options[i].value == "${requestScope.COUNTRY}") {
             form.COUNTRY.options[i].selected = true;
             break;
           }
         }
         for (i = 0; i < form.STATE.options.length; i++) {
-          if (form.STATE.options[i].value == "${param.STATE}") {
+          if (form.STATE.options[i].value == "${requestScope.STATE}") {
             form.STATE.options[i].selected = true;
             break;
           }
@@ -91,7 +92,7 @@
       }
     </script>
   </head>
-  <body onload="init (document.form1)">
+  <body onload="init (document.account)">
     <!-- Blue background -->
     <div class="blue-bg"></div>
 
@@ -102,12 +103,11 @@
           <div class="row justify-content-start">
             <jsp:include page="includes/menuSidebar.jsp" />
             <div class="col-lg-10 col-md-12 page-title" id="account-page">
-              <jsp:include page="account-page.jsp" />
-              <!-- <form action="https://affiliates-new.bmtmicro.com/servlets/Affiliates.Account" method="post">
+              <form name="account" action="https://affiliates-new.bmtmicro.com/servlets/Affiliates.Account" method="post">
                 <input type="hidden" name="ACTION" value="1">
                 <input type="hidden" name="NEXT_PAGE" value="https://affiliates-new.bmtmicro.com/account-page.jsp">
-                <input type="hidden" name="ERROR_PAGE" value="https://affiliates-new.bmtmicro.com/affiliate-error.jsp">
-              </form> -->
+                <input type="hidden" name="ERROR_PAGE" value="https://affiliates-new.bmtmicro.com/error.jsp">
+              </form>
             </div> <!-- /.col-lg-10 col-md-12 page-title -->
           </div> <!-- /.row justify-content-start -->
         </article>
@@ -117,6 +117,7 @@
     <%@ include file="/includes/bootstrap_bottom_scripts.html" %>
   </body>
   <script>
+    $(document).ready(function(){ submitToDiv (document.account, 'account-page'); });
     $('input[type=checkbox]').change(function(){
       $(this).prev('input[type=hidden]').val (this.checked ? -1 : 0);
     });

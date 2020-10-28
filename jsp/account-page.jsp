@@ -24,7 +24,7 @@
   </li>
 </ul>
 <div class="tab-box">
-  <form name="form1" method="post" action="https://affiliates-new.bmtmicro.com/servlets/Affiliates.Account">
+  <form name="account" method="post" action="https://affiliates-new.bmtmicro.com/servlets/Affiliates.Account">
     <input type="hidden" name="NEXT_PAGE" value="https://affiliates-new.bmtmicro.com/main.jsp">
     <input type="hidden" name="ERROR_PAGE" value="https://affiliates-new.bmtmicro.com/new-affiliate-error.jsp">
     <input type="hidden" name="ACTION" value="11" />
@@ -32,33 +32,33 @@
       <div class="tab-pane fade show active" id="accountTab" role="tabpanel" aria-labelledby="account-tab">
         <h5>Account&nbsp;Information</h5>
         <p>Please make sure to double check this information. It will be used for sending out payments.</p>
-        <p style="font-size: .9rem;">Affiliate ID:&nbsp;&nbsp;<b><input name="AFFILIATEID" type="hidden" value="${param.AFFILIATEID}">${param.AFFILIATEID}</b></p>
+        <p style="font-size: .9rem;">Affiliate ID:&nbsp;&nbsp;<b><input name="AFFILIATEID" type="hidden" value="${requestScope.AFFILIATEID}">${requestScope.AFFILIATEID}</b></p>
         <div class="row" style="margin-bottom: 2rem;">
           <div class="col-4" style="padding-right: 0;">
             <span>
               <label>Company:&nbsp;</label>
-              <input name="COMPANY" size="35" maxlength="50" value="${param.COMPANY}" style="margin-bottom: 1rem;">
+              <input name="COMPANY" size="35" maxlength="50" value="${requestScope.COMPANY}" style="margin-bottom: 1rem;">
             </span>
             <br>
             <span>
               <label>Name:&nbsp;</label>
-              <input name="NAME" size="35" maxlength="50" value="${param.NAME}" style="margin-bottom: 1rem;">
+              <input name="NAME" size="35" maxlength="50" value="${requestScope.NAME}" style="margin-bottom: 1rem;">
             </span>
             <br>
             <span>
               <label>Address 1:&nbsp;</label>
-              <input name="ADDRESS1" size="35" maxlength="50" value="${param.ADDRESS1}" style="margin-bottom: 1rem;">
+              <input name="ADDRESS1" size="35" maxlength="50" value="${requestScope.ADDRESS1}" style="margin-bottom: 1rem;">
             </span>
             <br>
             <span>
               <label>Address 2:&nbsp;</label>
-              <input name="ADDRESS2" size="35" maxlength="50" value="${param.ADDRESS2}">
+              <input name="ADDRESS2" size="35" maxlength="50" value="${requestScope.ADDRESS2}">
             </span>
           </div> <!-- /.col-4 -->
           <div class="col-4" style="padding: 0;">
             <span>
               <label>City:&nbsp;</label>
-              <input name="CITY" size="35" maxlength="50" value="${param.CITY}" style="margin-bottom: 1rem;">
+              <input name="CITY" size="35" maxlength="50" value="${requestScope.CITY}" style="margin-bottom: 1rem;">
             </span>
             <br>
             <span>
@@ -77,15 +77,15 @@
             <br>
             <span>
               <label>ZIP/Postal Code:&nbsp;</label>
-              <input name="ZIP" size="10" maxlength="50" value="${param.ZIP}">
+              <input name="ZIP" size="10" maxlength="50" value="${requestScope.ZIP}">
             </span>
           </div> <!-- /.col-4 -->
         </div> <!-- /.row -->
         <div class="row">
           <div class="col-8">
             <div class="controlbuttons">
-              <button type="button" class="light-btn" onclick="process(form)" style="margin-right: .5rem;">Save</button>
-              <button type="reset" class="light-btn">Reset</button>
+              <button type="button" class="save-btn" onclick="process(form)" style="margin-right: .5rem;">Save</button>
+              <button type="reset" class="save-btn">Reset</button>
             </div> <!-- /.controlbuttons -->
           </div> <!-- /.col-4 -->
         </div> <!-- /.row -->
@@ -95,26 +95,26 @@
         <p>Affiliate contact information is not given out to customers.</p>
         <span>
           <label>Phone:&nbsp;</label>
-          <input name="PHONE" size="35" maxlength="50" value="${param.PHONE}" style="margin-bottom: 1rem;">
+          <input name="PHONE" size="35" maxlength="50" value="${requestScope.PHONE}" style="margin-bottom: 1rem;">
         </span>
         <br>
         <span>
           <label>Fax:&nbsp;</label>
-          <input name="FAX" size="35" maxlength="50" value="${param.FAX}" style="margin-bottom: 1rem;">
+          <input name="FAX" size="35" maxlength="50" value="${requestScope.FAX}" style="margin-bottom: 1rem;">
         </span>
         <br>
         <span>
           <label>Email Address:&nbsp;</label>
-          <input name="EMAIL" size="35" maxlength="50" value="${param.EMAIL}" style="margin-bottom: 1rem;">
+          <input name="EMAIL" size="35" maxlength="50" value="${requestScope.EMAIL}" style="margin-bottom: 1rem;">
         </span>
         <br>
         <span>
           <label>Website Address:&nbsp;</label>
-          <input name="WEBADDRESS" size="35" maxlength="200" value="${param.WEBADDRESS}" style="margin-bottom: 2rem;">
+          <input name="WEBADDRESS" size="35" maxlength="200" value="${requestScope.WEBADDRESS}" style="margin-bottom: 2rem;">
         </span>
         <div class="controlbuttons">
-          <button type="button" class="light-btn" onclick="process(form)" style="margin-right: .5rem;">Save</button>
-          <button type="reset" class="light-btn">Reset</button>
+          <button type="button" class="save-btn" onclick="process(form)" style="margin-right: .5rem;">Save</button>
+          <button type="reset" class="save-btn">Reset</button>
         </div> <!-- /.controlbuttons -->
       </div> <!-- /.tab-pane #contactTab -->
       <div class="tab-pane fade" id="notificationTab" role="tabpanel" aria-labelledby="notification-tab">
@@ -122,39 +122,39 @@
         <p>By default notifications will be sent upon a order being placed. Please uncheck if this is not desired.</p>
         <span>
           <input type="hidden" name="ORDERNOTIFICATIONS" value="">
-          <input type="checkbox" name="ORDERNOTIFICATIONS_CHK" value="" style="margin-bottom: 1rem;">
+          <input type="checkbox" style="margin-bottom: 1rem;"<c:if test="${ORDERNOTIFICATIONS_CHK==''}">checked</c:if>/>
           Receive Order Notifications
         </span>
         <br>
         <span>
           <input type="hidden" name="VENDOREMAIL" value="">
-          <input type="checkbox" name="VENDOREMAIL_CHK" value="" style="margin-bottom: 2rem;">
+          <input type="checkbox" style="margin-bottom: 2rem;"<c:if test="${requestScope.VENDOREMAIL_CHK==''}">checked</c:if>/>
           Receive Vendor Emails
         </span>
         <div class="controlbuttons">
-          <button type="button" class="light-btn" onclick="process(form)" style="margin-right: .5rem;">Save</button>
-          <button type="reset" class="light-btn">Reset</button>
+          <button type="button" class="save-btn" onclick="process(form)" style="margin-right: .5rem;">Save</button>
+          <button type="reset" class="save-btn">Reset</button>
         </div> <!-- /.controlbuttons -->
       </div> <!-- /.tab-pane #notificationTab -->
       <div class="tab-pane fade" id="passwordTab">
         <h5>Password Information</h5>
         <span>
           <label>Login Name:&nbsp;</label>
-          <input name="LOGINNAME" type="hidden" value="${param.LOGINNAME}" style="margin-bottom: 1rem;">${param.LOGINNAME}</input>
+          <input name="LOGINNAME" type="hidden" value="${requestScope.LOGINNAME}" style="margin-bottom: 1rem;">${requestScope.LOGINNAME}</input>
         </span>
         <br>
         <span>
           <label>New Password:&nbsp;</label>
-          <input name="PASSWORD" type="password" size="35" maxlength="16" value="${param.PASSWORD}" autocomplete="off" style="margin-bottom: 1rem;">
+          <input name="PASSWORD" type="password" size="35" maxlength="16" value="${requestScope.PASSWORD}" autocomplete="off" style="margin-bottom: 1rem;">
         </span>
         <br>
         <span>
           <label>Re-type New Password:&nbsp;</label>
-          <input name="PASSWORD2" type="password" size="35" maxlength="16" value="${param.PASSWORD}" autocomplete="off" style="margin-bottom: 2rem;">
+          <input name="PASSWORD2" type="password" size="35" maxlength="16" value="${requestScope.PASSWORD}" autocomplete="off" style="margin-bottom: 2rem;">
         </span>
         <div class="controlbuttons">
-          <button type="button" class="light-btn" onclick="process(form)" style="margin-right: .5rem;">Save</button>
-          <button type="reset" class="light-btn">Reset</button>
+          <button type="button" class="save-btn" onclick="process(form)" style="margin-right: .5rem;">Save</button>
+          <button type="reset" class="save-btn">Reset</button>
         </div> <!-- /.controlbuttons -->
       </div> <!-- /.tab-pane #passwordTab -->
     </div> <!-- /.tab-content #myTabContent -->
