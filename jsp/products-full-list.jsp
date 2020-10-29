@@ -1,6 +1,6 @@
 <%@ include file="/includes/core.jsp" %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -32,17 +32,23 @@
     </style>
     <script>
       function joinVendor (vendor) {
+        var form = document.productlistform;
         document.productlistform.JOINVENDORID.value = vendor;
-        document.productlistform.submit();
+        // document.productlistform.submit();
+        submitToDiv(form, 'tableframe');
       }
       function selectPage (page) {
+        var form = document.productlistform;
         document.productlistform.PAGE.value = page;
-        document.productlistform.submit();
+        // document.productlistform.submit();
+        submitToDiv(form, 'tableframe');
       }
       function selectCategory () {
+        var form = document.productlistform;
         document.productlistform.CATEGORY.value = document.productlistform.CATEGORY_SELECTOR.options[document.productlistform.CATEGORY_SELECTOR.selectedIndex].value;
         document.productlistform.PAGE.value = 1;
-        document.productlistform.submit();
+        // document.productlistform.submit();
+        submitToDiv(form, 'tableframe');
       }
       function showLink (Orderlink,Demolink,Productlink) {
         var msgWindow = window.open("https://affiliates-new.bmtmicro.com/popup.jsp?oL="+escape(Orderlink)+"&dL="+escape(Demolink)+"&pL="+escape(Productlink), "detailsPopUp", "location=no,width=700,height=275,resizable=yes");
@@ -52,13 +58,6 @@
         if ("${requestScope.FILTERBY}".indexOf ('#') == -1) {
           SetSelectorValue (form.FILTERBY,"${requestScope.FILTERBY}");
           form.FILTERMASK.value = "${requestScope.FILTERMASK}";
-        }
-      }
-
-      function filterKeyPress(event) {
-        if (event.keyCode == 13) {
-          init ();
-          return (true);
         }
       }
     </script>
@@ -77,7 +76,7 @@
               <h4>Affiliate Product List</h4>
               <div class="content-box overflow-auto">
                 <div class="h-100" name="tableframe" id="tableframe">
-                  <jsp:include page="products-joined-product-list-table.jsp" />
+                  <jsp:include page="products-full-list-table.jsp" />
                 </div>
               </div> <!-- /.content-box -->
             </div> <!-- /.col-lg-10 col-md-12 page-title -->

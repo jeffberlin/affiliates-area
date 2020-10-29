@@ -1,10 +1,9 @@
 <%@ include file="/includes/core.jsp" %>
 <form name="productlistform" method="post" action="https://affiliates-new.bmtmicro.com/servlets/Affiliates.ProductList">
-  <input type="hidden" name="NEXT_PAGE" value="https://affiliates-new.bmtmicro.com/products-joined-product-list-table.jsp" />
+  <input type="hidden" name="NEXT_PAGE" value="https://affiliates-new.bmtmicro.com/products-full-list-table.jsp" />
   <input type="hidden" name="ERROR_PAGE" value="https://affiliates-new.bmtmicro.com/error.jsp" />
   <input type="hidden" name="PAGE" value="1" />
-  <input type="hidden" name="JOINEDONLY" value="-1" />
-  <input type="hidden" name="JOINVENDORID" value="0" />
+  <input type="hidden" name="JOINEDONLY" value="0" />
   <input type="hidden" name="CATEGORY" value="" />
   <div class="table-header">
     <span>Category:&nbsp;${requestScope.CATEGORYSELECTOR}</span>
@@ -51,9 +50,9 @@
       <tfoot class="table-total">
         <th scope="col" colspan="20">
           <div id="pageselector">
-            <c:if test = "${requestScope.PAGECOUNT > 1}">
+            <c:if test = "${requestScope.PAGESELECTOR > 1}">
               Pages:
-              <c:forEach var = "page" begin = "1" end = "${requestScope.PAGECOUNT}">
+              <c:forEach var = "page" begin = "1" end = "${requestScope.PAGESELECTOR}">
                 &nbsp;<a href="javascript:selectPage(${page});">${page}</a>&nbsp;
               </c:forEach>
             </c:if>
