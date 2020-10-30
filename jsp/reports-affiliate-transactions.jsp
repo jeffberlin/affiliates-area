@@ -18,27 +18,17 @@
     <script src="https://affiliates-new.bmtmicro.com/js/calendar.js"></script>
     <script src="https://affiliates-new.bmtmicro.com/js/main.js"></script>
     <style media="screen" type="text/css">
-      td[text] {
+      td[text], td[date], td[money] {
         border-right: 1px solid #a9a9a9;
       }
       td[money] {
         text-align: right;
       }
+      td[date] {
+        text-align: center;
+      }
     </style>
     <script>
-      // function initForm (form) {
-      //   getDates (form);
-      //   form.submit ();
-      // }
-      //
-      // function getDates(form){
-      //   if(document.affiliatesales.DATEFROM.value == ""){
-      //     document.affiliatesales.DATEFROM.value = firstOfMonthDate ();
-      //   }
-      //   if(document.affiliatesales.DATETO.value == ""){
-      //     document.affiliatesales.DATETO.value = makeDate ();
-      //   }
-      // }
       function refreshReport (form) {
         if (CheckDateRange (form)) {
           submitToDiv (form, 'tableframe');
@@ -46,9 +36,27 @@
       }
       function filterKeyPress(event) {
         if (event.keyCode == 13) {
-          refreshReport (document.daterange);
+          refreshReport (document.transactions);
           return (true);
         }
+      }
+      function showDetails(i) {
+        window.open("", "detailsPopUp", "location=no,scrollbars=yes,width=680,height=480,resizable=yes").focus();
+        document.bmtconfig.submit();
+      }
+      function checkFormat(form) {
+        switch (parseInt (form.FORMAT.value)) {
+          case 0:
+            form.target = "_blank";
+          break;
+          case 1:
+          case 2:
+          case 3:
+          default:
+          form.target = "";
+          break;
+        }
+        form.submit();
       }
     </script>
   </head>
@@ -63,11 +71,11 @@
           <div class="row justify-content-start">
             <jsp:include page="includes/menuSidebar.jsp" />
             <div class="col-lg-10 col-md-12 page-title">
-              <h4>Affiliate Sales Reports</h4>
+              <h4>Affiliate Transactions Report</h4>
               <div class="content-box overflow-auto">
-                <form name="daterange" action="https://affiliates-new.bmtmicro.com/servlets/Affiliates.SalesDetails" method="post">
-                  <input type="hidden" name="NEXT_PAGE" value="https://affiliates-new.bmtmicro.com/reports-sales-summary-table.jsp" />
-                  <input type="hidden" name="ERROR_PAGE" value="https://affiliates-new.bmtmicro.com/error.jsp" />
+                <form name="transactions" method="post" action="https://affiliates-new.bmtmicro.com/servlets/Affiliates.Transactions">
+                  <input type="hidden" name="NEXT_PAGE" value="https://affiliates-new.bmtmicro.com/reports-affiliate-transactions-table.jsp"/>
+                  <input type="hidden" name="ERROR_PAGE" value="https://affiliates-new.bmtmicro.com/error.jsp"/>
                   <div class="table-header">
                     <span>
                       From:&nbsp;
@@ -80,7 +88,7 @@
 											<img class="calendar" alt="Click Here to Pick the date" title="Click Here to Pick the date" onclick="show_calendar (this)" />
                     </span>
                     <span>
-                      <button type="button" class="grey-btn" onclick="refreshReport(document.daterange)">Get Sales Summary</button>
+                      <button type="button" class="grey-btn" onclick="refreshReport (document.transactions);">Get Account Transactions</button>
                     </span>
                   </div> <!-- /.table-header -->
                 </form>
@@ -94,5 +102,5 @@
     </div> <!-- /.main-raised -->
     <%@ include file="/includes/bootstrap_bottom_scripts.html" %>
   </body>
-  <script>$(document).ready(function(){ submitToDiv (document.daterange, 'tableframe'); });</script>
+  <script>$(document).ready(function(){ submitToDiv (document.transactions, 'tableframe'); });</script>
 </html>

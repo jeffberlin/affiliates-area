@@ -27,6 +27,21 @@
         text-align: right;
       }
     </style>
+    <script>
+      function initForm (form) {
+        getDates (form);
+        form.submit ();
+      }
+
+      function getDates(form){
+        if(document.affiliatesales.DATEFROM.value == ""){
+          document.affiliatesales.DATEFROM.value = firstOfMonthDate ();
+        }
+        if(document.affiliatesales.DATETO.value == ""){
+          document.affiliatesales.DATETO.value = makeDate ();
+        }
+      }
+    </script>
   </head>
   <body>
     <!-- Blue background -->

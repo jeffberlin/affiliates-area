@@ -59,9 +59,15 @@ select, .main-raised, .save-btn {
   background: #ffffff;
   }
 
-select:hover {
+select:hover, .calendar:hover {
   cursor: pointer;
   }
+
+.calendar {
+	min-width: 22px;
+	min-height: 22px;
+	content: url("https://affiliates-new.bmtmicro.com/images/cal.gif")
+}
 
 .blue-bg {
   background-color: #195a7c;
@@ -157,3 +163,13 @@ h5, input, textarea, .save-btn, .grey-btn, input::placeholder {
 .grey-btn:hover {
   background-color: #a9a9a9;
   }
+
+#resultframe {
+	border-top: 1px solid rgba(0, 0, 0, 0.15);
+	-webkit-box-shadow: 0px -3px 3px rgba(0, 0, 0, 0.15);
+	-moz-box-shadow: 0px -3px 3px rgba(0, 0, 0, 0.15);
+	box-shadow: 0px -3px 3px rgba(0, 0, 0, 0.15);
+	z-index: 1;
+  /* display: none; */
+	padding: 1rem;
+}

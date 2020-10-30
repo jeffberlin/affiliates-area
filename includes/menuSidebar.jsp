@@ -41,7 +41,7 @@
       <a class="dropdown-toggle sidebar-group" role="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#">Reports</a>
       <div class="dropdown-menu dropdown-menu-right text-center sidebar-options" aria-labelledby="dropdownMenuButton">
         <a class="dropdown-item" href="https://affiliates-new.bmtmicro.com/reports-sales-summary.jsp">Sales Summary</a>
-        <a class="dropdown-item" href="https://affiliates-new.bmtmicro.com/transstart.html">Affiliate Transactions</a>
+        <a class="dropdown-item" href="https://affiliates-new.bmtmicro.com/reports-affiliate-transactions.jsp">Affiliate Transactions</a>
       </div> <!-- /.dropdown-menu dropdown-menu-right sidebar-options -->
     </div> <!-- /.dropright -->
   </aside>
