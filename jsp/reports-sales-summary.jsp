@@ -21,6 +21,9 @@
       td[text] {
         border-right: 1px solid #a9a9a9;
       }
+      td[number] {
+        text-align: center;
+      }
       td[money] {
         text-align: right;
       }

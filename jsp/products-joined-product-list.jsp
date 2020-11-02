@@ -55,10 +55,17 @@
         msgWindow.focus();
       }
 
-      function refreshReport(form) {
+      function checkForm(form) {
         if ("${requestScope.FILTERBY}".indexOf ('#') == -1) {
           SetSelectorValue (form.FILTERBY,"${requestScope.FILTERBY}");
           form.FILTERMASK.value = "${requestScope.FILTERMASK}";
+          submitToDiv(form, 'tableframe');
+        }
+      }
+
+      function refreshReport (form) {
+        if (checkForm (form)){
+          submitToDiv (form, 'tableframe');
         }
       }
 
