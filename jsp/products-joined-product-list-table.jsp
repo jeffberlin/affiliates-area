@@ -24,16 +24,16 @@
       ${requestScope.PRODUCTLIST}
     </tbody>
     <tfoot class="table-total">
-      <th scope="col" colspan="20">
-        ${requestScope.PAGESELECTOR}
-        <!-- <div id="pageselector">
+      <th scope="col" colspan="5">
+        <!-- ${requestScope.PAGESELECTOR} -->
+        <div id="pageselector">
           <c:if test = "${requestScope.PAGECOUNT > 1}">
             Pages:
             <c:forEach var = "page" begin = "1" end = "${requestScope.PAGECOUNT}">
               &nbsp;<a href="javascript:selectPage(${page});">${page}</a>&nbsp;
             </c:forEach>
           </c:if>
-        </div> -->
+        </div>
       </th>
     </tfoot>
   </table>

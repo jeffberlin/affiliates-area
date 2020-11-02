@@ -43,13 +43,13 @@
         // form.submit();
         submitToDiv (form, 'tableframe');
       }
-      function selectCategory () {
-        var form = document.productlistform;
-        form.CATEGORY.value = form.CATEGORY_SELECTOR.options[form.CATEGORY_SELECTOR.selectedIndex].value;
-        form.PAGE.value = 1;
-        // form.submit();
-        submitToDiv(form, 'tableframe');
-      }
+      // function selectCategory () {
+      //   var form = document.productlistform;
+      //   form.CATEGORY.value = form.CATEGORY_SELECTOR.options[form.CATEGORY_SELECTOR.selectedIndex].value;
+      //   form.PAGE.value = 1;
+      //   // form.submit();
+      //   submitToDiv(form, 'tableframe');
+      // }
       function showLink (Orderlink,Demolink,Productlink) {
         var msgWindow = window.open("https://affiliates-new.bmtmicro.com/popup.jsp?oL="+escape(Orderlink)+"&dL="+escape(Demolink)+"&pL="+escape(Productlink), "detailsPopUp", "location=no,width=700,height=275,resizable=yes");
         msgWindow.focus();
@@ -59,7 +59,6 @@
         if ("${requestScope.FILTERBY}".indexOf ('#') == -1) {
           SetSelectorValue (form.FILTERBY,"${requestScope.FILTERBY}");
           form.FILTERMASK.value = "${requestScope.FILTERMASK}";
-          submitToDiv(form, 'tableframe');
         }
       }
 
@@ -96,9 +95,9 @@
                   <input type="hidden" name="PAGE" value="1" />
                   <input type="hidden" name="JOINEDONLY" value="-1" />
                   <input type="hidden" name="JOINVENDORID" value="0" />
-                  <input type="hidden" name="CATEGORY" value="${requestScope.CATEGORY}" />
+                  <!-- <input type="hidden" name="CATEGORY" value="${requestScope.CATEGORY}" /> -->
                   <div class="table-header">
-                    <span>Category:&nbsp;${requestScope.CATEGORYSELECTOR}</span>
+                    <!-- <span>Category:&nbsp;${requestScope.CATEGORYSELECTOR}</span> -->
                     <span>
                       Filter Type:&nbsp;
                       <select name="FILTERBY">
