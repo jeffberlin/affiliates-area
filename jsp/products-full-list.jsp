@@ -54,22 +54,15 @@
         var msgWindow = window.open("https://affiliates-new.bmtmicro.com/popup.jsp?oL="+escape(Orderlink)+"&dL="+escape(Demolink)+"&pL="+escape(Productlink), "detailsPopUp", "location=no,width=700,height=275,resizable=yes");
         msgWindow.focus();
       }
-      function checkForm (form) {
-        if ("${requestScope.FILTERBY}".indexOf ('#') == -1) {
-          SetSelectorValue (form.FILTERBY,"${requestScope.FILTERBY}");
-          form.FILTERMASK.value = "${requestScope.FILTERMASK}";
-        }
-      }
 
       function refreshReport(form) {
-        if (checkForm (form)) {
-          submitToDiv (form, 'tableframe');
-        }
+        submitToDiv (form, 'tableframe');
       }
 
       function filterKeyPress(event) {
         if (event.keyCode == 13) {
-          refreshReport (document.transactions);
+          refreshReport (document.productlistform);
+          event.preventDefault();
           return (true);
         }
       }
@@ -106,7 +99,7 @@
                     </span>
                     <span>
                       Filter By:&nbsp;
-                      <input type="text" name="FILTERMASK" placeholder="Search" onkeypress="filterKeyPress(event)" />
+                      <input class="input-search" type="text" name="FILTERMASK" value="${requestScope.FILTERMASK}" placeholder="Search" onkeypress="filterKeyPress(event)" />
                     </span>
                     <span>
                       <button type="button" class="grey-btn" onclick="refreshReport(document.productlistform)">Get Products List</button>

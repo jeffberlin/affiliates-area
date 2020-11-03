@@ -1,6 +1,6 @@
 <%@ include file="/includes/core.jsp" %>
 <div class="row table-responsive" style="margin-left: auto; margin-right: auto;">
-  <table class="table" id="selection">
+  <table class="table">
     <thead>
       <tr class="table-category">
         <th scope="col" class="sort-column text-center sortable sort" title="Sort on 'Product'" text>
@@ -25,7 +25,6 @@
     </tbody>
     <tfoot class="table-total">
       <th scope="col" colspan="5">
-        <!-- ${requestScope.PAGESELECTOR} -->
         <div id="pageselector">
           <c:if test = "${requestScope.PAGECOUNT > 1}">
             Pages:

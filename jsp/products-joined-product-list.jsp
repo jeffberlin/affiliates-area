@@ -32,51 +32,45 @@
     </style>
     <script>
       function joinVendor (vendor) {
-        var form = document.productlistform;
+        var form = document.productjoined;
         form.JOINVENDORID.value = vendor;
         // form.submit();
-        submitToDiv(form, 'tableframe');
+        submitToDiv (form, 'tableframe');
       }
+
       function selectPage (page) {
-        var form = document.productlistform;
+        var form = document.productjoined;
         form.PAGE.value = page;
         // form.submit();
         submitToDiv (form, 'tableframe');
       }
-      // function selectCategory () {
-      //   var form = document.productlistform;
-      //   form.CATEGORY.value = form.CATEGORY_SELECTOR.options[form.CATEGORY_SELECTOR.selectedIndex].value;
-      //   form.PAGE.value = 1;
-      //   // form.submit();
-      //   submitToDiv(form, 'tableframe');
-      // }
+
       function showLink (Orderlink,Demolink,Productlink) {
         var msgWindow = window.open("https://affiliates-new.bmtmicro.com/popup.jsp?oL="+escape(Orderlink)+"&dL="+escape(Demolink)+"&pL="+escape(Productlink), "detailsPopUp", "location=no,width=700,height=275,resizable=yes");
         msgWindow.focus();
       }
 
-      function checkForm(form) {
-        if ("${requestScope.FILTERBY}".indexOf ('#') == -1) {
-          SetSelectorValue (form.FILTERBY,"${requestScope.FILTERBY}");
-          form.FILTERMASK.value = "${requestScope.FILTERMASK}";
-        }
-      }
-
-      function refreshReport (form) {
-        if (checkForm (form)){
+      function init(form) {
+        if ("##FILTERBY##".indexOf ('#') == -1) {
+          SetSelectorValue (form.FILTERBY,"##FILTERBY##");
+          form.FILTERMASK.value = "##FILTERMASK##";
           submitToDiv (form, 'tableframe');
         }
       }
 
+      function refreshReport(form) {
+
+      }
+
       function filterKeyPress(event) {
         if (event.keyCode == 13) {
-          refreshReport (document.transactions);
+          refreshReport (document.productjoined);
           return (true);
         }
       }
     </script>
   </head>
-  <body>
+  <body onload="init(document.productjoined);">
     <!-- Blue background -->
     <div class="blue-bg"></div>
 
@@ -89,15 +83,13 @@
             <div class="col-lg-10 col-md-12 page-title">
               <h4>Affiliate Joined Product List</h4>
               <div class="content-box overflow-auto d-flex flex-column">
-                <form name="productlistform" method="post" action="https://affiliates-new.bmtmicro.com/servlets/Affiliates.ProductList">
+                <form name="productjoined" method="post" action="https://affiliates-new.bmtmicro.com/servlets/Affiliates.ProductList">
                   <input type="hidden" name="NEXT_PAGE" value="https://affiliates-new.bmtmicro.com/products-joined-product-list-table.jsp" />
                   <input type="hidden" name="ERROR_PAGE" value="https://affiliates-new.bmtmicro.com/error.jsp" />
                   <input type="hidden" name="PAGE" value="1" />
                   <input type="hidden" name="JOINEDONLY" value="-1" />
                   <input type="hidden" name="JOINVENDORID" value="0" />
-                  <!-- <input type="hidden" name="CATEGORY" value="${requestScope.CATEGORY}" /> -->
                   <div class="table-header">
-                    <!-- <span>Category:&nbsp;${requestScope.CATEGORYSELECTOR}</span> -->
                     <span>
                       Filter Type:&nbsp;
                       <select name="FILTERBY">
@@ -111,7 +103,7 @@
                       <input type="text" name="FILTERMASK" placeholder="Search" onkeypress="filterKeyPress(event)" />
                     </span>
                     <span>
-                      <button type="button" class="grey-btn" onclick="refreshReport(document.productlistform)">Get Products List</button>
+                      <button type="button" class="grey-btn" onclick="refreshReport (document.productjoined);">Get Products List</button>
                     </span>
                   </div> <!-- /.table-header -->
                 </form>
@@ -129,6 +121,6 @@
     <%@ include file="/includes/bootstrap_bottom_scripts.html" %>
   </body>
   <script>
-    $(document).ready(function(){ submitToDiv (document.productlistform, 'tableframe'); });
+    $(document).ready(function(){ submitToDiv (document.productjoined, 'tableframe'); });
   </script>
 </html>
