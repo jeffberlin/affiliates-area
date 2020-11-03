@@ -54,7 +54,7 @@
                   <button type="submit" value="Login" autocomplete="off">Login</button>
                 </div> <!-- /.login-btn text-center -->
                 <div class="signup text-center">
-                  <a href="https://affiliates.bmtmicro.com/new-affiliate-signup.jsp">Sign Up</a>
+                  <a href="https://affiliates-new.bmtmicro.com/new-affiliate-signup.jsp">Sign Up</a>
                 </div> <!-- /.signup text-center -->
               </form>
             </div> <!-- /.affiliate-login-box -->

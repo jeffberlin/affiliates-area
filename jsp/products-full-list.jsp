@@ -34,8 +34,8 @@
       function joinVendor (vendor) {
         var form = document.productlistform;
         form.JOINVENDORID.value = vendor;
-        // document.productlistform.submit();
-        submitToDiv(form, 'tableframe');
+        form.submit();
+        // submitToDiv(form, 'tableframe');
       }
       function selectPage (page) {
         var form = document.productlistform;
@@ -81,32 +81,9 @@
             <div class="col-lg-10 col-md-12 page-title">
               <h4>Affiliate Product List</h4>
               <div class="content-box overflow-auto d-flex flex-column">
-                <form name="productlistform" method="post" action="https://affiliates-new.bmtmicro.com/servlets/Affiliates.ProductList">
-                  <input type="hidden" name="NEXT_PAGE" value="https://affiliates-new.bmtmicro.com/products-full-list-table.jsp" />
-                  <input type="hidden" name="ERROR_PAGE" value="https://affiliates-new.bmtmicro.com/error.jsp" />
-                  <input type="hidden" name="PAGE" value="1" />
-                  <input type="hidden" name="JOINEDONLY" value="0" />
-                  <input type="hidden" name="CATEGORY" value="${requestScope.CATEGORY}" />
-                  <div class="table-header">
-                    <span>Category:&nbsp;${requestScope.CATEGORYSELECTOR}</span>
-                    <span>
-                      Filter Type:&nbsp;
-                      <select name="FILTERBY">
-                        <option value="1"<c:if test="${requestScope.FILTERBY=='1'}"> selected</c:if>>Vendor Name</option>
-                        <option value="2"<c:if test="${requestScope.FILTERBY=='2'}"> selected</c:if>>Product Name</option>
-                        <option value="3"<c:if test="${requestScope.FILTERBY=='3'}"> selected</c:if>>Products since (YYYY-MM-DD)</option>
-                      </select>
-                    </span>
-                    <span>
-                      Filter By:&nbsp;
-                      <input class="input-search" type="text" name="FILTERMASK" value="${requestScope.FILTERMASK}" placeholder="Search" onkeypress="filterKeyPress(event)" />
-                    </span>
-                    <span>
-                      <button type="button" class="grey-btn" onclick="refreshReport(document.productlistform)">Get Products List</button>
-                    </span>
-                  </div> <!-- /.table-header -->
-                </form>
-                <div class="overflow-auto h-100" name="tableframe" id="tableframe"></div> <!-- /#tableframe -->
+                <div class="overflow-auto h-100" name="tableframe" id="tableframe">
+                  <jsp:include page="products-full-list-table.jsp" />
+                </div> <!-- /#tableframe -->
                 <div name="resultframe" id="resultframe">
                   <p style="font-size: .9rem; margin-bottom: 0;"><b>Note:</b>&nbsp;Prices listed above are full product price. To affiliate amount may be less if Developer is offering a discount.</p>
                 </div>
