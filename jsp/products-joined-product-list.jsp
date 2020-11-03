@@ -50,27 +50,20 @@
         msgWindow.focus();
       }
 
-      function init(form) {
-        if ("##FILTERBY##".indexOf ('#') == -1) {
-          SetSelectorValue (form.FILTERBY,"##FILTERBY##");
-          form.FILTERMASK.value = "##FILTERMASK##";
-          submitToDiv (form, 'tableframe');
-        }
-      }
-
       function refreshReport(form) {
-
+        submitToDiv (form, 'tableframe');
       }
 
       function filterKeyPress(event) {
         if (event.keyCode == 13) {
           refreshReport (document.productjoined);
+          event.preventDefault();
           return (true);
         }
       }
     </script>
   </head>
-  <body onload="init(document.productjoined);">
+  <body>
     <!-- Blue background -->
     <div class="blue-bg"></div>
 
@@ -100,7 +93,7 @@
                     </span>
                     <span>
                       Filter By:&nbsp;
-                      <input type="text" name="FILTERMASK" placeholder="Search" onkeypress="filterKeyPress(event)" />
+                      <input class="input-search" type="text" name="FILTERMASK" value="${requestScope.FILTERMASK}" placeholder="Search" onkeypress="filterKeyPress(event)" />
                     </span>
                     <span>
                       <button type="button" class="grey-btn" onclick="refreshReport (document.productjoined);">Get Products List</button>
