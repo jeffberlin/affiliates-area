@@ -110,7 +110,7 @@
                 <br>
                 <span>
                   <input type="checkbox" name="TERMS" value="" style="margin-bottom: 2rem;"/>&nbsp;
-                  I have read and agree to the Affiliate Terms.
+                  I have read and agree to the <a href="https://affiliates-new.bmtmicro.com/NewSignup/affiliate-terms.jsp" target="_blank">Affiliate Terms</a>.
                 </span>
                 <br>
                 <button type="button" name="button" class="save-btn" onclick="process(form)">Continue</button>

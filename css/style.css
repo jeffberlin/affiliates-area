@@ -98,8 +98,8 @@ select:hover, .calendar:hover {
   }
 
 .sidebar img {
-  height: 60px;
-  width: auto;
+  width: 200px;
+  height: auto;
   margin-bottom: 20px;
   }
 
