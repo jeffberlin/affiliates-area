@@ -34,7 +34,7 @@
         <p>Please make sure to double check this information. It will be used for sending out payments.</p>
         <p style="font-size: .9rem;">Affiliate ID:&nbsp;&nbsp;<b><input name="AFFILIATEID" type="hidden" value="${requestScope.AFFILIATEID}">${requestScope.AFFILIATEID}</b></p>
         <div class="row" style="margin-bottom: 2rem;">
-          <div class="col-4" style="padding-right: 0;">
+          <div class="col-4" style="padding-left: 0; padding-right: 0;">
             <span>
               <label>Company:&nbsp;</label>
               <input name="COMPANY" size="35" maxlength="50" value="${requestScope.COMPANY}" style="margin-bottom: 1rem;">
@@ -82,7 +82,7 @@
           </div> <!-- /.col-4 -->
         </div> <!-- /.row -->
         <div class="row">
-          <div class="col-8">
+          <div class="col-8" style="padding-left: 0;">
             <div class="controlbuttons">
               <button type="button" class="save-btn" onclick="process(form)" style="margin-right: .5rem;">Save</button>
               <button type="reset" class="save-btn">Reset</button>
