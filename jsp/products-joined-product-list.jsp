@@ -32,25 +32,22 @@
     </style>
     <script>
       function joinVendor (vendor) {
-        var form = document.productjoined;
+        var form = document.productlistform;
         form.JOINVENDORID.value = vendor;
-        // form.submit();
-        submitToDiv (form, 'tableframe');
+        refreshReport (form);
       }
 
       function selectPage (page) {
-        var form = document.productjoined;
+        var form = document.productlistform;
         form.PAGE.value = page;
-        // form.submit();
-        submitToDiv (form, 'tableframe');
+        refreshReport (form);
       }
 
       function selectCategory () {
         var form = document.productlistform;
         form.CATEGORY.value = form.CATEGORY_SELECTOR.options[form.CATEGORY_SELECTOR.selectedIndex].value;
         form.PAGE.value = 1;
-        // document.productlistform.submit();
-        submitToDiv(form, 'tableframe');
+        refreshReport (form);
       }
 
       function showLink (Orderlink,Demolink,Productlink) {
@@ -64,7 +61,7 @@
 
       function filterKeyPress(event) {
         if (event.keyCode == 13) {
-          refreshReport (document.productjoined);
+          refreshReport (document.productlistform);
           event.preventDefault();
           return (true);
         }
@@ -85,7 +82,11 @@
               <h4>Affiliate Joined Product List</h4>
               <div class="content-box overflow-auto d-flex flex-column">
                 <div class="overflow-auto h-100" name="tableframe" id="tableframe">
-                  <jsp:include page="products-joined-product-list-table.jsp" />
+                  <form name="productlistform" method="post" action="https://affiliates-new.bmtmicro.com/servlets/Affiliates.ProductList">
+                    <input type="hidden" name="NEXT_PAGE" value="https://affiliates-new.bmtmicro.com/products-product-list-table.jsp" />
+                    <input type="hidden" name="ERROR_PAGE" value="https://affiliates-new.bmtmicro.com/error.jsp" />
+                    <input type="hidden" name="JOINEDONLY" value="-1" />
+                  </form>
                 </div> <!-- /#tableframe -->
                 <div name="resultframe" id="resultframe">
                   <p style="font-size: .9rem; margin-bottom: 0;"><b>Note:</b>&nbsp;Prices listed above are full product price. To affiliate amount may be less if Developer is offering a discount.</p>
@@ -100,6 +101,6 @@
     <%@ include file="/includes/bootstrap_bottom_scripts.html" %>
   </body>
   <script>
-    $(document).ready(function(){ submitToDiv (document.productjoined, 'tableframe'); });
+    $(document).ready(function(){ submitToDiv (document.productlistform, 'tableframe'); });
   </script>
 </html>

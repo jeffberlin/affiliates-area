@@ -1,12 +1,15 @@
 <%@ include file="/includes/core.jsp" %>
 <form name="productlistform" method="post" action="https://affiliates-new.bmtmicro.com/servlets/Affiliates.ProductList">
-  <input type="hidden" name="NEXT_PAGE" value="https://affiliates-new.bmtmicro.com/products-full-list-table.jsp" />
+  <input type="hidden" name="NEXT_PAGE" value="https://affiliates-new.bmtmicro.com/products-product-list-table.jsp" />
   <input type="hidden" name="ERROR_PAGE" value="https://affiliates-new.bmtmicro.com/error.jsp" />
   <input type="hidden" name="PAGE" value="1" />
-  <input type="hidden" name="JOINEDONLY" value="0" />
+  <input type="hidden" name="JOINEDONLY" value="${requestScope.JOINEDONLY}" />
+  <input type="hidden" name="JOINVENDORID" value="0" />
   <input type="hidden" name="CATEGORY" value="${requestScope.CATEGORY}" />
   <div class="table-header">
-    <span>Category:&nbsp;${requestScope.CATEGORYSELECTOR}</span>
+    <c:if test="${!empty requestScope.CATEGORYSELECTOR}">
+      <span>Category:&nbsp;${requestScope.CATEGORYSELECTOR}</span>
+    </c:if>
     <span>
       Filter Type:&nbsp;
       <select name="FILTERBY">
@@ -20,7 +23,7 @@
       <input class="input-search" type="text" name="FILTERMASK" value="${requestScope.FILTERMASK}" placeholder="Search" onkeypress="filterKeyPress(event)" />
     </span>
     <span>
-      <button type="button" class="grey-btn" onclick="refreshReport(document.productlistform)">Get Products List</button>
+      <button type="button" class="grey-btn" onclick="refreshReport (document.productlistform);">Get Products List</button>
     </span>
   </div> <!-- /.table-header -->
   <div class="row table-responsive" style="margin-left: auto; margin-right: auto;">
@@ -45,7 +48,48 @@
         </tr>
       </thead>
       <tbody>
-        ${requestScope.PRODUCTLIST}
+        <c:forEach var="row" items="${requestScope.TABLEDATA}">
+          <c:if test="${row.ADDHEADER==-1}">
+             <tr class="hdrrowb">
+                <c:if test="${row.HASJOINED==-1}">
+                  <td colspan="5">
+                    <c:if test="${!empty row.VENDORURL}"><a href="${row.VENDORURL}" target="_blank"></c:if>
+                      <font size="+1"><b>${row.VENDORNAME}</b></font>
+                    <c:if test="${!empty row.VENDORURL}"></a></c:if>
+                  </td>
+                </c:if>
+                <c:if test="${row.HASJOINED!=-1}">
+                  <td colspan="4">
+                    <c:if test="${!empty row.VENDORURL}"><a href="${row.VENDORURL}"></c:if>
+                      <font size="+1"><b>${row.VENDORNAME}</b></font>
+                    <c:if test="${!empty row.VENDORURL}"></a></c:if>
+                  </td>
+                  <td align="right"><input type="button" value="Join" onclick="joinVendor(${row.VENDORID})" style="width: 80px;"/></td>
+                </c:if>
+             </tr>
+          </c:if>
+          <tr bordercolor="WHITE">
+            <td width="55%">
+              <c:if test="${!empty row.PRODUCTURL}"><a href="${row.PRODUCTURL}" target="_blank"></c:if>
+                ${row.PRODUCTNAME}
+              <c:if test="${!empty row.PRODUCTURL}"></a></c:if>
+            </td>
+            <td width="15%" align="center">${row.LISTPRICE}</td>
+            <c:if test="${row.HASPERCENTAGE==-1}">
+              <td width="15%" align="center">${row.PERCENTAGE}%</td>
+              <td width="15%" align="center">${row.TOAFFILIATE}</td>
+            </c:if>
+            <c:if test="${row.HASPERCENTAGE!=-1}">
+              <td align="center"
+              colspan="2"><a href="mailto:${row.INQUIRYEMAIL}?subject=Affiliate ${row.AFFILIATEID} Inquiry">Inquiry</a></td>
+            </c:if>
+            <td align="right">
+              <c:if test="${row.HASJOINED==-1 && row.HASPERCENTAGE==-1}">
+                <a href="javascript:showLink('${row.AFFILIATEURL}','${row.DEMOURL}','${row.PRODURL}')">Show&nbsp;Links</a>
+              </c:if>
+            </td>
+          </tr>
+        </c:forEach>
       </tbody>
       <tfoot class="table-total">
         <th scope="col" colspan="5">

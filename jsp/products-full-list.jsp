@@ -1,6 +1,6 @@
 <%@ include file="/includes/core.jsp" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -34,21 +34,18 @@
       function joinVendor (vendor) {
         var form = document.productlistform;
         form.JOINVENDORID.value = vendor;
-        form.submit();
-        // submitToDiv(form, 'tableframe');
+        refreshReport (form);
       }
       function selectPage (page) {
         var form = document.productlistform;
         form.PAGE.value = page;
-        // document.productlistform.submit();
-        submitToDiv(form, 'tableframe');
+        refreshReport (form);
       }
       function selectCategory () {
         var form = document.productlistform;
         form.CATEGORY.value = form.CATEGORY_SELECTOR.options[form.CATEGORY_SELECTOR.selectedIndex].value;
         form.PAGE.value = 1;
-        // document.productlistform.submit();
-        submitToDiv(form, 'tableframe');
+        refreshReport (form);
       }
       function showLink (Orderlink,Demolink,Productlink) {
         var msgWindow = window.open("https://affiliates-new.bmtmicro.com/popup.jsp?oL="+escape(Orderlink)+"&dL="+escape(Demolink)+"&pL="+escape(Productlink), "detailsPopUp", "location=no,width=700,height=275,resizable=yes");
@@ -82,7 +79,11 @@
               <h4>Affiliate Product List</h4>
               <div class="content-box overflow-auto d-flex flex-column">
                 <div class="overflow-auto h-100" name="tableframe" id="tableframe">
-                  <jsp:include page="products-full-list-table.jsp" />
+                  <form name="productlistform" method="post" action="https://affiliates-new.bmtmicro.com/servlets/Affiliates.ProductList">
+                    <input type="hidden" name="NEXT_PAGE" value="https://affiliates-new.bmtmicro.com/products-product-list-table.jsp" />
+                    <input type="hidden" name="ERROR_PAGE" value="https://affiliates-new.bmtmicro.com/error.jsp" />
+                    <input type="hidden" name="JOINEDONLY" value="0" />
+                  </form>
                 </div> <!-- /#tableframe -->
                 <div name="resultframe" id="resultframe">
                   <p style="font-size: .9rem; margin-bottom: 0;"><b>Note:</b>&nbsp;Prices listed above are full product price. To affiliate amount may be less if Developer is offering a discount.</p>
