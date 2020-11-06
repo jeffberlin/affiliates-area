@@ -40,10 +40,11 @@
             </div> <!-- /.col-lg-2 -->
             <div class="col-lg-10 col-md-12 page-title">
               <h4>An error occurred</h4>
-              <p>We are unable to complete your request at this time. The system may be down.</p>
-              <p>Please wait 60 minutes and try your report again. If you continue to have difficulties, please contact <a href="mailto:affiliates@bmtmicro.com">affiliates@bmtmicro.com</a> for assistance.</p>
-              <p>If further information regarding this error is available, it will be displayed below.</p>
-              <p style="padding: 0 15px;">${requestScope.MESSAGE}</p>
+              <p>${ requestScope.MESSAGE }
+                <c:if test = "${ empty requestScope.MESSAGE }">
+                We are unable to complete your request at this time. The system may be down at this time. Please wait 60 minutes and try your report again. If you continue to have difficulties, please contact <a href="mailto:affiliates@bmtmicro.com">affiliates@bmtmicro.com</a> for assistance.
+                </c:if>
+              </p>
             </div> <!-- /.col-lg-10 col-md-12 page-title -->
           </div> <!-- /.row justify-content-start -->
         </article>
