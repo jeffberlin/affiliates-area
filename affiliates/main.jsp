@@ -25,7 +25,7 @@
       <div class="container-fluid body-content">
         <article class="section">
           <div class="row justify-content-start">
-            <jsp:include page="includes/menuSidebar.jsp" />
+            <jsp:include page="/includes/menuSidebar.jsp" />
             <div class="col-lg-10 col-md-12 page-title">
               <h4>Affiliate Information Center</h4>
               <p>Please use the links to the left to browse through our available affiliate products, join a vendors affiliate program, get links for your site and view reports on your success. If you find a product in our BMT online catalog that is not listed here, contact the developer or us and we will check into adding their products to our affiliate program.</p>
@@ -34,7 +34,7 @@
           </div> <!-- /.row justify-content-start -->
         </article>
       </div> <!-- /.container-fluid body-content -->
-      <jsp:include page="includes/footer.jsp" />
+      <jsp:include page="/includes/footer.jsp" />
     </div> <!-- /.main-raised -->
     <%@ include file="/includes/bootstrap_bottom_scripts.html" %>
   </body>

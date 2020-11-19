@@ -119,7 +119,7 @@
           </div> <!-- /.row justify-content-start -->
         </article>
       </div> <!-- /.container-fluid body-content -->
-      <jsp:include page="includes/footer.jsp" />
+      <jsp:include page="/includes/footer.jsp" />
     </div> <!-- /.main-raised -->
     <%@ include file="/includes/bootstrap_bottom_scripts.html" %>
   </body>

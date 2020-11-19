@@ -74,7 +74,7 @@
       <div class="container-fluid body-content">
         <article class="section">
           <div class="row justify-content-start">
-            <jsp:include page="includes/menuSidebar.jsp" />
+            <jsp:include page="/includes/menuSidebar.jsp" />
             <div class="col-lg-10 col-md-12 page-title">
               <h4>Affiliate Product List</h4>
               <div class="content-box overflow-auto d-flex flex-column">
@@ -93,7 +93,7 @@
           </div> <!-- /.row justify-content-start -->
         </article>
       </div> <!-- /.container-fluid body-content -->
-      <jsp:include page="includes/footer.jsp" />
+      <jsp:include page="/includes/footer.jsp" />
     </div> <!-- /.main-raised -->
     <%@ include file="/includes/bootstrap_bottom_scripts.html" %>
   </body>

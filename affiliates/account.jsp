@@ -101,7 +101,7 @@
       <div class="container-fluid body-content">
         <article class="section">
           <div class="row justify-content-start">
-            <jsp:include page="includes/menuSidebar.jsp" />
+            <jsp:include page="/includes/menuSidebar.jsp" />
             <div class="col-lg-10 col-md-12 page-title" id="account-page">
               <form name="account" action="https://affiliates.bmtmicro.com/servlets/Affiliates.Account" method="post">
                 <input type="hidden" name="ACTION" value="1">
@@ -112,7 +112,7 @@
           </div> <!-- /.row justify-content-start -->
         </article>
       </div> <!-- /.container-fluid body-content -->
-      <jsp:include page="includes/footer.jsp" />
+      <jsp:include page="/includes/footer.jsp" />
     </div> <!-- /.main-raised -->
     <%@ include file="/includes/bootstrap_bottom_scripts.html" %>
   </body>

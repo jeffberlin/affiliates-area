@@ -30,7 +30,7 @@
       <div class="container-fluid body-content">
         <article class="section">
           <div class="row justify-content-start">
-            <jsp:include page="includes/menuSidebar.jsp" />
+            <jsp:include page="/includes/menuSidebar.jsp" />
             <div class="col-lg-10 col-md-12 page-title">
               <h4>Affiliate Help</h4>
               <p>Here you will find helpful information regarding features in the Developer's Center. More information will be added regularly. If you do not find the answer your looking for here, please check out our <a href="https://affiliates.bmtmicro.com/faqsstart.html" TARGET="_main">FAQS</a> page. If you still need additional help, please contact <a href="mailto:webmaster@bmtmicro.com">webmaster@bmtmicro.com</a> for assistance.</p>
@@ -51,7 +51,7 @@
           </div> <!-- /.row justify-content-start -->
         </article>
       </div> <!-- /.container-fluid body-content -->
-      <jsp:include page="includes/footer.jsp" />
+      <jsp:include page="/includes/footer.jsp" />
     </div> <!-- /.main-raised -->
     <%@ include file="/includes/bootstrap_bottom_scripts.html" %>
   </body>
