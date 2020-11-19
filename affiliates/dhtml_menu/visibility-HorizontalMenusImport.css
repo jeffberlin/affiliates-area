@@ -1,0 +1,106 @@
+/* --------------------------------- */
+/* Created       2000-11-12          */
+/* Issued        2001-01-11          */
+/* Modified      2002-01-05          */
+/* Checked       2002-01-05          */
+/* Copyright (c) 2001-2004 by        */
+/* Philip Shaw, all rights reserved. */
+/* --------------------------------- */
+/*
+  Move the Code Style logo down
+  beneath the menus:
+  background-position: [horiz.] [vert.]
+*/
+
+#MenuBar, #LinkBar{width:520px;float:none;position:absolute;left:180px;border:none;}
+/*
+  z-index necessary to make links
+  visible in Netscape 6
+*/
+#MenuBar{top:93px;z-index:1002;}
+#LinkBar{top:80px;z-index:1001;}
+/*
+  Main menu and link styles identical.
+*/
+#Menu2{float:left;width:133px;color:#DBEAFF;background:#1F58A9;font-family:"verdana";font-weight:normal;font-size:10px;position:absolute;top:0;left:90px;}
+#Menu3{float:left;width:145px;color:#DBEAFF;background:#1F58A9;font-family:"verdana";font-weight:normal;font-size:10px;position:absolute;top:0;left:180px;}
+#Menu4{float:left;width:125px;color:#DBEAFF;background:#1F58A9;font-family:"verdana";font-weight:normal;font-size:10px;position:absolute;top:0;left:315px;}
+#Menu1, #Menu5, #Menu6{float:left;width:0.3%;color:#DBEAFF;background:#1F58A9;font-family:"verdana";font-weight:normal;font-size:10px;display:none;visibility:hidden;}
+#Link1{width:110px}
+#Link2{width:110px;position:absolute;top:0;left:90px}
+#Link3{width:110px;position:absolute;top:0;left:180px}
+#Link4{width:110px;position:absolute;top:0;left:290px}
+#Link5{width:110px;position:absolute;top:0;left:380px}
+#Link6{width:110px;position:absolute;top:0;left:380px}
+
+/*
+  Differences in menu and link styles.
+*/
+#Menu1, #Menu2, #Menu3, #Menu4, #Menu5, #Menu6{visibility:hidden;}
+#Link1, #Link2, #Link3, #Link4, #Link5, #Link6{
+visibility:visible;
+height:10px;
+margin:1px 5px 1px 5px; 
+padding-left:5px;
+color:#DBEAFF;
+background:#1F58A9;
+font-family:"verdana";
+font-weight:bold;
+font-size:10px;
+float:left;   
+}
+/*
+  Must override float on the menu divs.
+*/
+#Menu1 UL, #Menu2 UL, #Menu3 UL,
+#Menu4 UL, #Menu5 UL, #Menu6 UL{
+list-style:none;
+margin-top:3px;
+padding:0px;
+font-family:"verdana";
+border-collapse:collapse;
+border:#003366 thin solid;
+}
+#Menu1 li, #Menu2 li, #Menu3 li,
+#Menu4 li, #Menu5 li, #Menu6 li{
+border-top:#003366 thin solid;
+font-family:"verdana";
+padding:1.5px;
+}
+#Menu1 A:link, #Menu2 A:link,
+#Menu3 A:link, #Menu4 A:link,
+#Menu5 A:link, #Menu6 A:link,
+#Link1 A:link, #Link2 A:link,
+#Link3 A:link, #Link4 A:link,
+#Link5 A:link, #Link6 A:link,
+#Menu1 A:visited, #Menu2 A:visited,
+#Menu3 A:visited, #Menu4 A:visited,
+#Menu5 A:visited, #Menu6 A:visited,
+#Link1 A:visited, #Link2 A:visited,
+#Link3 A:visited, #Link4 A:visited,
+#Link5 A:visited, #Link6 A:visited{
+color:#DBEAFF;
+background:#1F58A9;
+text-decoration:none;
+}
+#Menu1 A:hover, #Menu2 A:hover,
+#Menu3 A:hover, #Menu4 A:hover,
+#Menu5 A:hover, #Menu6 A:hover,
+#Link1 A:hover, #Link2 A:hover,
+#Link3 A:hover, #Link4 A:hover,
+#Link5 A:hover, #Link5 A:hover,
+#Menu1 A:focus, #Menu2 A:focus,
+#Menu3 A:focus, #Menu4 A:focus,
+#Menu5 A:focus, #Menu6 A:focus,
+#Link1 A:focus, #Link2 A:focus,
+#Link3 A:focus, #Link4 A:focus,
+#Link5 A:focus, #Link6 A:focus{
+color:#ffcc66;
+background:#1F58A9;
+text-decoration:none;
+}
+/*
+  Substitute padding for omitted
+  Code Style URI.
+*/
+.Title{padding-top:0em;}

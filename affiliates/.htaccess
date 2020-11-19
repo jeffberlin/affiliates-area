@@ -1,0 +1,33 @@
+# [QSA] = Query String Append
+# mod_rewrite docs (Apache 2.0xx): http://httpd.apache.org/docs/2.0/mod/mod_rewrite.html
+
+RewriteEngine On
+RewriteBase /
+
+RewriteRule ^ResetPassword/(.+)$ /servlets/Affiliates.ResetPassword?PWRID=$1 [L]
+
+# Legacy links
+RewriteRule ^01357(/?)(.*)$ /
+RewriteRule ^03059(/?)(.*)$ /
+RewriteRule ^05594(/?)(.*)$ /
+RewriteRule ^6315(/?)(.*)$ /
+RewriteRule ^8612(/?)(.*)$ /
+RewriteRule ^BlitWise(/?)(.*)$ /
+RewriteRule ^BlueTeaGames(/?)(.*)$ /
+RewriteRule ^BrainBlock(/?)(.*)$ /
+RewriteRule ^CornerstoneTSP(/?)(.*)$ /
+RewriteRule ^Dextronet(/?)(.*)$ /
+RewriteRule ^EmTec(/?)(.*)$ /
+RewriteRule ^InsaneTools(/?)(.*)$ /
+RewriteRule ^MountainKing(/?)(.*)$ /
+RewriteRule ^NewSignup(/?)(.*)$ /
+RewriteRule ^NewSoftwares(/?)(.*)$ /
+RewriteRule ^PMView(/?)(.*)$ /
+RewriteRule ^RedClaw(/?)(.*)$ /
+RewriteRule ^SoftTech(/?)(.*)$ /
+RewriteRule ^speedupmymp3(/?)(.*)$ /
+RewriteRule ^SuperiorInteractive(/?)(.*)$ /
+RewriteRule ^TotallyGame(/?)(.*)$ /
+RewriteRule ^WinStep(/?)(.*)$ /
+RewriteRule ^Yamisoft(/?)(.*)$ /
+RewriteRule ^YoudaGames(/?)(.*)$ /

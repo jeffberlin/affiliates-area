@@ -1,0 +1,22 @@
+/* --------------------------------- */
+/* visibility-HorizontalMenus.css    */
+/* --------------------------------- */
+/* Created      2000-10-21           */
+/* Issued       2001-01-11           */
+/* Modified     2002-01-05           */
+/* Checked      2002-01-05           */
+/* Copyright (c) 2001-2004 by        */
+/* Philip Shaw, all rights reserved. */
+/* --------------------------------- */
+
+@import url(visibility-HorizontalMenusImport.css);
+/*
+  Basic styles for NN4.
+*/
+#Link1, #Link2, #Link3, #Link4, #Link5{
+  float:            left;
+  width:            9%;
+}
+#Header{
+  clear:            left;
+}

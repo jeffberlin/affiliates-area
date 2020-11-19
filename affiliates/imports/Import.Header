@@ -1,0 +1,75 @@
+<script type="text/javascript" src="https://affiliates.bmtmicro.com/js/vhelp.js"></script>
+<script language="javascript" type="text/javascript" src="https://secure.bmtmicro.com/Templates/util.js"></script>
+<!--<script language="javascript" type="text/javascript" src="https://affiliates.bmtmicro.com/servlets/Affiliates.Balance"></script> -->
+
+<script language="javascript" type="text/javascript">
+<!--
+// Redirect to login page if this page is accessed and the vendor is not logged in
+if (getCookieValue ("BMTMicro.Affiliates.AffiliateID") == null) {
+   window.location = "https://affiliates.bmtmicro.com/index.html";
+   }
+// Function for pulling name and company when available
+function getAffiliateName () {
+   var n = getCookieValue ("BMTMicro.Affiliates.Name");
+   var c = getCookieValue ("BMTMicro.Affiliates.Company");
+   return (((c == null) || (c == "")) ? n : (n + ", " + c));
+   }
+// -->
+</script>
+
+<table class="mainframe" cellspacing="0" cellpadding="0">
+   <tbody>
+      <tr>
+         <td>
+           <dl class="settings">
+              <dt>
+                  <script language="javascript" type="text/javascript">
+                  <!--
+                     document.write (getAffiliateName ());
+                  // -->
+                  </script>
+               </dt>
+               |
+               <dd> <script language="javascript" type="text/javascript">
+                  <!--
+                     var stLastLogin = getCookieValue ("BMTMicro.Affiliates.LastLogin");
+                     if (stLastLogin != null) {
+                        document.write ('Last login: ' + stLastLogin);
+                        }
+                  -->
+                  </script>   |</dd>
+                <dd>|</dd>
+               <dd><a href="https://affiliates.bmtmicro.com/chooseloginstart.html">My Account</a></dd>
+               <dd>|</dd>
+
+
+               <dd><a href="https://affiliates.bmtmicro.com/logout.html">Log Out</a></dd>
+            </dl>
+
+
+            <table class="innerframe" cellspacing="0" cellpadding="0">
+               <tr>
+                  <td class="navigation">
+                     <dl>
+                        <dt><a href="https://affiliates.bmtmicro.com/mainstart.html">Home</a></dt>
+                        <dd>&nbsp;</dd>
+                        <dt>Info</dt>
+                        <dd><a href="https://affiliates.bmtmicro.com/faqsstart.html">FAQs</a></dd>
+                        <dd><a href="https://affiliates.bmtmicro.com/helpstart.html">Help</a></dd>
+
+                        <dd>&nbsp;</dd>
+                        <dt>Products</dt>
+                        <dd><a href="https://affiliates.bmtmicro.com/joinedonlystart.html">Joined Product List</a></dd>
+                        <dd><a href="https://affiliates.bmtmicro.com/productliststart.html">Full Product List</a></dd>
+                        <dd><a href="https://affiliates.bmtmicro.com/logouploadstart.html">Logo Uploader</a></dd>
+                        <dd>&nbsp;</dd>
+                        <dt>Reports</dt>
+                       <!-- <dd><a href="https://affiliates.bmtmicro.com/productliststart.html">Product List</a></dd>  -->
+                        <dd><a href="https://affiliates.bmtmicro.com/affiliatesalesstart.html">Sales Summary</a></dd>
+                        <dd><a href="https://affiliates.bmtmicro.com/transstart.html">Affiliate Transactions</a></dd>
+                        <dd>&nbsp;</dd>
+
+                     </dl>
+                  </td>
+                  <td class="separation"><div></div></td>
+                  <td class="content">
