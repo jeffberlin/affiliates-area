@@ -1,6 +1,6 @@
 <%@ include file="/includes/core.jsp" %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
@@ -10,34 +10,40 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    <title>BMT Micro Affiliates Center</title>
+    <title>BMT Micro Affiliate Center</title>
     <%@ include file="/includes/bootstrap_top_script.html" %>
-    <%@ include file="/includes/style_menu_footer.html" %>
+    <link rel="stylesheet" href="https://affiliates.bmtmicro.com/css/style.css"/>
+    <link rel="stylesheet" href="https://affiliates.bmtmicro.com/css/login.css"/>
+    <link rel="stylesheet" href="https://affiliates.bmtmicro.com/css/responsive.css"/>
   </head>
   <body>
-    <!-- Blue background -->
-    <div class="blue-bg"></div>
-
-    <!-- Start of body content -->
-    <div class="main-raised">
-      <div class="container-fluid body-content">
-        <article class="section">
-          <div class="row justify-content-start">
-            <div class="col-lg-2">
-              <aside class="sidebar" role="complementary">
-                <img src='<c:url value="https://affiliates.bmtmicro.com/images/bmt-micro-logo-new-min.png"></c:url>' alt="BMT Micro, Inc. logo">
-              </aside>
-            </div> <!-- /.col-lg-2 -->
-            <div class="col-lg-10 col-md-12 page-title">
-              <h4>An error occurred</h4>
+    <div class="container-fluid" style="height: calc(100vh - 350px);">
+      <div class="main"></div>
+      <div class="content-area">
+        <div class="row text-center justify-content-center" style="margin-bottom: 20px;">
+          <div class="col-lg-10">
+            <img src='<c:url value="https://affiliates.bmtmicro.com/images/bmt-micro-logo-new-min.png"></c:url>' alt="BMT Micro, Inc. logo" height="70" style="margin-bottom: 20px;">
+            <h5 style="color: #ffffff; letter-spacing: .5px; text-shadow: 1px 1px 3px rgba(0,0,0,0.7);">Affiliate's Control Panel</h5>
+          </div>
+        </div>
+        <div class="row justify-content-center">
+          <div class="box-style" style="max-width: 650px;">
+            <div class="affiliate-login-box" style="background-color: rgba(255, 255, 255, 0.3); padding: 1rem 1.5rem;">
+              <h4 class="text-center">Error</h4>
               <p>The page you are looking for is not on this server. Please use your back button and try again or retype the URL. If you believe this is an error and wish to report it please email <a href="mailto:webmaster@bmtmicro.com">webmaster@bmtmicro.com</a>.</p>
               <a href="javascript: history.go(-1)">Back</a>
-            </div> <!-- /.col-lg-10 col-md-12 page-title -->
-          </div> <!-- /.row justify-content-start -->
-        </article>
-      </div> <!-- /.container-fluid body-content -->
-      <jsp:include page="/includes/footer.jsp" />
-    </div> <!-- /.main-raised -->
+            </div> <!-- /.affiliate-login-box -->
+          </div> <!-- /.box-style -->
+        </div> <!-- /.row justify-content-center -->
+      </div> <!-- /.content-area -->
+      <footer class="footer container-fluid">
+        <div class="bottom-footer-content row text-center align-items-center">
+          <div class="copyright col">
+            <p>BMT Micro, Inc. Copyright &copy; 1992 - ${yearNow}</p>
+          </div>
+        </div>
+      </footer>
+    </div>
     <%@ include file="/includes/bootstrap_bottom_scripts.html" %>
   </body>
 </html>
