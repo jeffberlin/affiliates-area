@@ -25,7 +25,7 @@
           <div class="row justify-content-start">
             <div class="col-lg-2">
               <aside class="sidebar" role="complementary">
-                <img src='<c:url value="https://affiliates.bmtmicro.com/images-2/bmt-micro-logo.png"></c:url>' alt="BMT Micro, Inc. logo">
+                <img src='<c:url value="https://affiliates.bmtmicro.com/images/bmt-micro-logo-new-min.png"></c:url>' alt="BMT Micro, Inc. logo">
                 <div>
                   <a class="sidebar-group" href="https://www.bmtmicro.com/">More about our services</a>
                 </div>
