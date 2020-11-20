@@ -101,7 +101,6 @@
                   <input type="hidden" name="ACTION" value="11" />
                   <input type="hidden" name="NEXT_PAGE" value="https://affiliates.bmtmicro.com/main.jsp" />
                   <input type="hidden" name="ERROR_PAGE" value="https://affiliates.bmtmicro.com/affiliate-signup-error.jsp" />
-                  <input type="hidden" name="EMAILTEMPLATE" value="https://affiliates.bmtmicro.com/newaffiliate.txt" />
                   <span>
                     <label>Login Name:&nbsp;</label>
                     <input name="LOGINNAME" type="hidden" value="${requestScope.LOGINNAME}" style="margin-bottom: 1rem;" /> ${requestScope.LOGINNAME}
