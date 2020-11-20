@@ -30,9 +30,9 @@
           <div class="box-style">
             <div class="affiliate-login-box" style="background-color: rgba(255, 255, 255, 0.3);">
               <form action="https://affiliates.bmtmicro.com/servlets/Affiliates.ResetPassword" method="post">
-                <input type="hidden" name="NEXT_PAGE" value="https://affiliates.bmtmicro.com/login_resetlinksent.html">
-                <input type="hidden" name="RESET_PAGE" value="https://affiliates.bmtmicro.com/login_resetpassword.html">
-                <input type="hidden" name="ERROR_PAGE" value="https://affiliates.bmtmicro.com/login_lostpassworderror.html">
+                <input type="hidden" name="NEXT_PAGE" value="https://affiliates.bmtmicro.com/login-reset-link-sent.jsp">
+                <input type="hidden" name="RESET_PAGE" value="https://affiliates.bmtmicro.com/login-reset-password.jsp">
+                <input type="hidden" name="ERROR_PAGE" value="https://affiliates.bmtmicro.com/login-lost-password-error.jsp">
                 <h4 class="text-center">Reset&nbsp;Password</h4>
                 <div class="username">
                   <label>Affiliate ID, Login Name, or Email:</label>
