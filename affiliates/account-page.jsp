@@ -1,6 +1,7 @@
+<%@ page pageEncoding="UTF-8" trimDirectiveWhitespaces="true" %>
 <%@ include file="/includes/core.jsp" %>
 <h4>Affiliate Account Information</h4>
-<p>Please use this form to update your Affiliate information. Please note: Affiliate payments are made to this address, so please double check! Required fields are marked *.</p>
+<p>Please use this form to update your Affiliate information. Please note: Affiliate payments are made to this address, so please double check!</p>
 <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item">
     <a class="nav-link active" id="account-tab" data-toggle="tab" href="#accountTab" role="tab" aria-controls="account information" aria-selected="true">
@@ -26,7 +27,7 @@
 <div class="tab-box">
   <form name="account" method="post" action="https://affiliates.bmtmicro.com/servlets/Affiliates.Account">
     <input type="hidden" name="NEXT_PAGE" value="https://affiliates.bmtmicro.com/main.jsp">
-    <input type="hidden" name="ERROR_PAGE" value="https://affiliates.bmtmicro.com/new-affiliate-error.jsp">
+    <input type="hidden" name="ERROR_PAGE" value="https://affiliates.bmtmicro.com/errorpage.jsp">
     <input type="hidden" name="ACTION" value="11" />
     <div class="tab-content" id="myTabContent">
       <div class="tab-pane fade show active" id="accountTab" role="tabpanel" aria-labelledby="account-tab">

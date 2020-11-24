@@ -1,3 +1,4 @@
+<%@ page pageEncoding="UTF-8" trimDirectiveWhitespaces="true" %>
 <%@ include file="/includes/core.jsp" %>
 <!DOCTYPE html>
 <html>
@@ -11,7 +12,7 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <title>BMT Micro Affiliate Center</title>
-    <%@ include file="includes/bootstrap_top_script.html" %>
+    <%@ include file="/includes/bootstrap_top_script.html" %>
     <link rel="stylesheet" href="https://affiliates.bmtmicro.com/css/style.css"/>
     <link rel="stylesheet" href="https://affiliates.bmtmicro.com/css/login.css"/>
     <link rel="stylesheet" href="https://affiliates.bmtmicro.com/css/responsive.css"/>
@@ -32,7 +33,7 @@
               <form action="https://affiliates.bmtmicro.com/servlets/Affiliates.ResetPassword" method="post">
                 <input type="hidden" name="NEXT_PAGE" value="https://affiliates.bmtmicro.com/login-reset-link-sent.jsp">
                 <input type="hidden" name="RESET_PAGE" value="https://affiliates.bmtmicro.com/login-reset-password.jsp">
-                <input type="hidden" name="ERROR_PAGE" value="https://affiliates.bmtmicro.com/login-lost-password-error.jsp">
+                <input type="hidden" name="ERROR_PAGE" value="https://affiliates.bmtmicro.com/login-error.jsp">
                 <h4 class="text-center">Reset&nbsp;Password</h4>
                 <div class="username">
                   <label>Affiliate ID, Login Name, or Email:</label>
@@ -54,6 +55,6 @@
         </div>
       </footer>
     </div>
-    <%@ include file="includes/bootstrap_bottom_scripts.html" %>
+    <%@ include file="/includes/bootstrap_bottom_scripts.html" %>
   </body>
 </html>

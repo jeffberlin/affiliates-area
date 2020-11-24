@@ -1,3 +1,4 @@
+<%@ page pageEncoding="UTF-8" trimDirectiveWhitespaces="true" %>
 <%@ include file="/includes/core.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -103,11 +104,12 @@
           <div class="row justify-content-start">
             <jsp:include page="/includes/menuSidebar.jsp" />
             <div class="col-lg-10 col-md-12 page-title" id="account-page">
-              <form name="account" action="https://affiliates.bmtmicro.com/servlets/Affiliates.Account" method="post">
-                <input type="hidden" name="ACTION" value="1">
-                <input type="hidden" name="NEXT_PAGE" value="https://affiliates.bmtmicro.com/account-page.jsp">
-                <input type="hidden" name="ERROR_PAGE" value="https://affiliates.bmtmicro.com/error.jsp">
-              </form>
+              <c:import url="https://affiliates.bmtmicro.com/servlets/Affiliates.Account">
+                <c:param name="SESSIONID" value="${sessionid}" />
+                <c:param name="NEXT_PAGE" value="https://affiliates.bmtmicro.com/account-page.jsp" />
+                <c:param name="ERROR_PAGE" value="https://affiliates.bmtmicro.com/errorpage.jsp" />
+                <c:param name="ACTION" value="1" />
+              </c:import>
             </div> <!-- /.col-lg-10 col-md-12 page-title -->
           </div> <!-- /.row justify-content-start -->
         </article>
@@ -117,7 +119,6 @@
     <%@ include file="/includes/bootstrap_bottom_scripts.html" %>
   </body>
   <script>
-    $(document).ready(function(){ submitToDiv (document.account, 'account-page'); });
     $('input[type=checkbox]').change(function(){
       $(this).prev('input[type=hidden]').val (this.checked ? -1 : 0);
     });

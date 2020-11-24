@@ -1,3 +1,4 @@
+<%@ page pageEncoding="UTF-8" trimDirectiveWhitespaces="true" %>
 <%@ include file="/includes/core.jsp" %>
 <!DOCTYPE html>
 <html lang="en">
@@ -75,7 +76,7 @@
               <div class="content-box overflow-auto">
                 <form name="transactions" method="post" action="https://affiliates.bmtmicro.com/servlets/Affiliates.Transactions">
                   <input type="hidden" name="NEXT_PAGE" value="https://affiliates.bmtmicro.com/reports-affiliate-transactions-table.jsp"/>
-                  <input type="hidden" name="ERROR_PAGE" value="https://affiliates.bmtmicro.com/error.jsp"/>
+                  <input type="hidden" name="ERROR_PAGE" value="https://affiliates.bmtmicro.com/errorpage.jsp"/>
                   <div class="table-header">
                     <span>
                       From:&nbsp;
@@ -92,7 +93,15 @@
                     </span>
                   </div> <!-- /.table-header -->
                 </form>
-                <div name="tableframe" class="h-100" id="tableframe"></div>
+                <div name="tableframe" class="h-100" id="tableframe">
+                  <c:import url="https://affiliates.bmtmicro.com/servlets/Affiliates.Transactions">
+                    <c:param name="SESSIONID" value="${sessionid}" />
+                    <c:param name="NEXT_PAGE" value="https://affiliates.bmtmicro.com/reports-affiliate-transactions-table.jsp" />
+                    <c:param name="ERROR_PAGE" value="https://affiliates.bmtmicro.com/errorpage.jsp" />
+                    <c:param name="DATEFROM" value="${bomDate}" />
+                    <c:param name="DATETO" value="${toDate}" />
+                  </c:import>
+                </div>
               </div> <!-- /.content-box -->
             </div> <!-- /.col-lg-10 col-md-12 page-title -->
           </div> <!-- /.row justify-content-start -->
@@ -102,5 +111,4 @@
     </div> <!-- /.main-raised -->
     <%@ include file="/includes/bootstrap_bottom_scripts.html" %>
   </body>
-  <script>$(document).ready(function(){ submitToDiv (document.transactions, 'tableframe'); });</script>
 </html>

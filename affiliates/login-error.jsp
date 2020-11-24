@@ -1,3 +1,4 @@
+<%@ page pageEncoding="UTF-8" trimDirectiveWhitespaces="true" %>
 <%@ include file="/includes/core.jsp" %>
 <!DOCTYPE html>
 <html>
@@ -30,7 +31,6 @@
           <div class="box-style">
             <div class="affiliate-login-box" style="background-color: rgba(255, 255, 255, 0.3);">
               <h4 class="text-center">Your login and password are invalid.</h4>
-              <p>Your password has been successfully set to the new password provided.</p>
               <p>You may want to <a href="https://affiliates.bmtmicro.com/">try again</a>.</p>
             </div> <!-- /.affiliate-login-box -->
           </div> <!-- /.box-style -->

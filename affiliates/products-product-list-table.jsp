@@ -1,7 +1,8 @@
+<%@ page pageEncoding="UTF-8" trimDirectiveWhitespaces="true" %>
 <%@ include file="/includes/core.jsp" %>
 <form name="productlistform" method="post" action="https://affiliates.bmtmicro.com/servlets/Affiliates.ProductList">
   <input type="hidden" name="NEXT_PAGE" value="https://affiliates.bmtmicro.com/products-product-list-table.jsp" />
-  <input type="hidden" name="ERROR_PAGE" value="https://affiliates.bmtmicro.com/error.jsp" />
+  <input type="hidden" name="ERROR_PAGE" value="https://affiliates.bmtmicro.com/errorpage.jsp" />
   <input type="hidden" name="PAGE" value="1" />
   <input type="hidden" name="JOINEDONLY" value="${requestScope.JOINEDONLY}" />
   <input type="hidden" name="JOINVENDORID" value="0" />
@@ -50,23 +51,23 @@
       <tbody>
         <c:forEach var="row" items="${requestScope.TABLEDATA}">
           <c:if test="${row.ADDHEADER==-1}">
-             <tr class="hdrrowb">
-                <c:if test="${row.HASJOINED==-1}">
-                  <td colspan="5">
-                    <c:if test="${!empty row.VENDORURL}"><a href="${row.VENDORURL}" target="_blank"></c:if>
-                      <font size="+1"><b>${row.VENDORNAME}</b></font>
-                    <c:if test="${!empty row.VENDORURL}"></a></c:if>
-                  </td>
-                </c:if>
-                <c:if test="${row.HASJOINED!=-1}">
-                  <td colspan="4">
-                    <c:if test="${!empty row.VENDORURL}"><a href="${row.VENDORURL}"></c:if>
-                      <font size="+1"><b>${row.VENDORNAME}</b></font>
-                    <c:if test="${!empty row.VENDORURL}"></a></c:if>
-                  </td>
-                  <td align="right"><input type="button" value="Join" onclick="joinVendor(${row.VENDORID})" style="width: 80px;"/></td>
-                </c:if>
-             </tr>
+            <tr class="hdrrowb">
+              <c:if test="${row.HASJOINED==-1}">
+                <td colspan="5">
+                  <c:if test="${!empty row.VENDORURL}"><a href="${row.VENDORURL}" target="_blank"></c:if>
+                  <font size="+1"><b>${row.VENDORNAME}</b></font>
+                  <c:if test="${!empty row.VENDORURL}"></a></c:if>
+                </td>
+              </c:if>
+              <c:if test="${row.HASJOINED!=-1}">
+                <td colspan="4">
+                  <c:if test="${!empty row.VENDORURL}"><a href="${row.VENDORURL}"></c:if>
+                  <font size="+1"><b>${row.VENDORNAME}</b></font>
+                  <c:if test="${!empty row.VENDORURL}"></a></c:if>
+                </td>
+                <td align="right"><input type="button" value="Join" onclick="joinVendor(${row.VENDORID})" style="width: 80px;"/></td>
+              </c:if>
+            </tr>
           </c:if>
           <tr bordercolor="WHITE">
             <td width="55%">

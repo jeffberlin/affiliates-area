@@ -1,3 +1,4 @@
+<%@ page pageEncoding="UTF-8" trimDirectiveWhitespaces="true" %>
 <%@ include file="/includes/core.jsp" %>
 <!DOCTYPE html>
 <html>
@@ -11,10 +12,31 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <title>BMT Micro Affiliate Center</title>
-    <%@ include file="includes/bootstrap_top_script.html" %>
+    <%@ include file="/includes/bootstrap_top_script.html" %>
     <link rel="stylesheet" href="https://affiliates.bmtmicro.com/css/style.css"/>
     <link rel="stylesheet" href="https://affiliates.bmtmicro.com/css/login.css"/>
     <link rel="stylesheet" href="https://affiliates.bmtmicro.com/css/responsive.css"/>
+    <script>
+      function submitForm (form) {
+        if (form.PASSWORD.value.length < 4) {
+          alert ("The password must be at least 4 characters.");
+          form.PASSWORD.focus ();
+          return (false);
+        }
+        if (form.PASSWORD.value.length > 16) {
+          alert ("The password must not be more than 16 characters.");
+          form.PASSWORD.focus ();
+          return (false);
+        }
+        if (form.PASSWORDAGAIN.value != form.PASSWORD.value) {
+          alert ("Your Password does not match the second Password field. Please retype your password and try again.");
+          form.PASSWORD.focus ();
+          return (false);
+        }
+        form.submit ();
+        return (true);
+      }
+    </script>
   </head>
   <body>
     <div class="container-fluid" style="height: calc(100vh - 350px);">
@@ -42,7 +64,7 @@
                     <input class="affiliate-input" id="PASSWORDAGAIN" name="PASSWORDAGAIN" type="password" value="" maxlength="50" />
                   </span>
                 </div> <!-- /.username -->
-                <input type="button" name="SET" value="Set Password" onclick="submitForm (resetform);">
+                <button type="button" name="SET" value="Set Password" onclick="submitForm(resetform);">Set Password</button>
               </form>
             </div> <!-- /.affiliate-login-box -->
           </div> <!-- /.box-style -->
@@ -56,6 +78,6 @@
         </div>
       </footer>
     </div>
-    <%@ include file="includes/bootstrap_bottom_scripts.html" %>
+    <%@ include file="/includes/bootstrap_bottom_scripts.html" %>
   </body>
 </html>

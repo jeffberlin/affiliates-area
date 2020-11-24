@@ -14,6 +14,16 @@
     <title>BMT Micro Affiliates Center</title>
     <%@ include file="/includes/bootstrap_top_script.html" %>
     <%@ include file="/includes/style_menu_footer.html" %>
+    <script>
+      function MM_reloadPage(init) {  //reloads the window if Nav4 resized
+        if (init==true) with (navigator) {
+          if ((appName=="Netscape")&&(parseInt(appVersion)==4)) {
+          document.MM_pgW=innerWidth; document.MM_pgH=innerHeight; onresize=MM_reloadPage;
+          }
+        } else if (innerWidth!=document.MM_pgW || innerHeight!=document.MM_pgH) location.reload();
+      }
+      MM_reloadPage(true);
+    </script>
   </head>
   <body>
     <!-- Blue background -->
@@ -24,19 +34,14 @@
       <div class="container-fluid body-content">
         <article class="section">
           <div class="row justify-content-start">
-            <div class="col-lg-2">
-              <aside class="sidebar" role="complementary">
-                <img src='<c:url value="https://affiliates.bmtmicro.com/images/bmt-micro-logo-new-min.png"></c:url>' alt="BMT Micro, Inc. logo">
-                <div>
-                  <a class="sidebar-group" href="https://www.bmtmicro.com/">More about our services</a>
-                </div>
-              </aside>
-            </div> <!-- /.col-lg-2 -->
+            <jsp:include page="/includes/menuSidebar.jsp" />
             <div class="col-lg-10 col-md-12 page-title">
               <h4>An error occurred</h4>
-              <h5>Note</h5>
-              <p style="margin-bottom: 2rem;">${requestScope.MESSAGE}</p>
-              <p style="font-size: .9rem;">To inquire about our affiliate program <a href="http://www.bmtmicro.com/contact.html">Click Here</a>.</p>
+              <p>${ requestScope.MESSAGE }
+                <c:if test = "${ empty requestScope.MESSAGE }">
+                We are unable to complete your request at this time. The system may be down at this time. Please wait 60 minutes and try your report again. If you continue to have difficulties, please contact <a href="mailto:affiliates@bmtmicro.com">affiliates@bmtmicro.com</a> for assistance.
+                </c:if>
+              </p>
             </div> <!-- /.col-lg-10 col-md-12 page-title -->
           </div> <!-- /.row justify-content-start -->
         </article>

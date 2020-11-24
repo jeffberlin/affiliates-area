@@ -1,3 +1,4 @@
+<%@ page pageEncoding="UTF-8" trimDirectiveWhitespaces="true" %>
 <%@ include file="/includes/core.jsp" %>
 <c:if test="${empty cookie['BMTMicro.Affiliates.AffiliateID'].value}">
   <script>
