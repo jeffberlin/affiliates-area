@@ -83,13 +83,15 @@
               <h4>Affiliate Joined Product List</h4>
               <div class="content-box overflow-auto d-flex flex-column">
                 <div class="overflow-auto h-100" name="tableframe" id="tableframe">
-                  <form name="productlistform" method="post" action="https://affiliates.bmtmicro.com/servlets/Affiliates.ProductList">
+                  <c:catch var="errormsg">
                     <c:import url="https://affiliates.bmtmicro.com/servlets/Affiliates.ProductList">
                       <c:param name="SESSIONID" value="${sessionid}" />
                       <c:param name="NEXT_PAGE" value="https://affiliates.bmtmicro.com/products-product-list-table.jsp" />
                       <c:param name="ERROR_PAGE" value="https://affiliates.bmtmicro.com/error-page.jsp" />
                       <c:param name="JOINEDONLY" value="-1" />
                     </c:import>
+                  </c:catch>
+                  <%@ include file="/includes/catch.jsp" %>
                 </div> <!-- /#tableframe -->
                 <div name="resultframe" id="resultframe">
                   <p style="font-size: .9rem; margin-bottom: 0;"><b>Note:</b>&nbsp;Prices listed above are full product price. To affiliate amount may be less if Developer is offering a discount.</p>

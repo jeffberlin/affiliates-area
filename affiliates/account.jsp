@@ -104,12 +104,15 @@
           <div class="row justify-content-start">
             <jsp:include page="/includes/menuSidebar.jsp" />
             <div class="col-lg-10 col-md-12 page-title" id="account-page">
-              <c:import url="https://affiliates.bmtmicro.com/servlets/Affiliates.Account">
-                <c:param name="SESSIONID" value="${sessionid}" />
-                <c:param name="NEXT_PAGE" value="https://affiliates.bmtmicro.com/account-page.jsp" />
-                <c:param name="ERROR_PAGE" value="https://affiliates.bmtmicro.com/error-page.jsp" />
-                <c:param name="ACTION" value="1" />
-              </c:import>
+              <c:catch var="errormsg">
+                <c:import url="https://affiliates.bmtmicro.com/servlets/Affiliates.Account">
+                  <c:param name="SESSIONID" value="${sessionid}" />
+                  <c:param name="NEXT_PAGE" value="https://affiliates.bmtmicro.com/account-page.jsp" />
+                  <c:param name="ERROR_PAGE" value="https://affiliates.bmtmicro.com/error-page.jsp" />
+                  <c:param name="ACTION" value="1" />
+                </c:import>
+              </c:catch>
+              <%@ include file="/includes/catch.jsp" %>
             </div> <!-- /.col-lg-10 col-md-12 page-title -->
           </div> <!-- /.row justify-content-start -->
         </article>

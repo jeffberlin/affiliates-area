@@ -94,13 +94,16 @@
                   </div> <!-- /.table-header -->
                 </form>
                 <div name="tableframe" class="h-100" id="tableframe">
-                  <c:import url="https://affiliates.bmtmicro.com/servlets/Affiliates.Transactions">
-                    <c:param name="SESSIONID" value="${sessionid}" />
-                    <c:param name="NEXT_PAGE" value="https://affiliates.bmtmicro.com/reports-affiliate-transactions-table.jsp" />
-                    <c:param name="ERROR_PAGE" value="https://affiliates.bmtmicro.com/error-page.jsp" />
-                    <c:param name="DATEFROM" value="${bomDate}" />
-                    <c:param name="DATETO" value="${toDate}" />
-                  </c:import>
+                  <c:catch var="errormsg">
+                    <c:import url="https://affiliates.bmtmicro.com/servlets/Affiliates.Transactions">
+                      <c:param name="SESSIONID" value="${sessionid}" />
+                      <c:param name="NEXT_PAGE" value="https://affiliates.bmtmicro.com/reports-affiliate-transactions-table.jsp" />
+                      <c:param name="ERROR_PAGE" value="https://affiliates.bmtmicro.com/error-page.jsp" />
+                      <c:param name="DATEFROM" value="${bomDate}" />
+                      <c:param name="DATETO" value="${toDate}" />
+                    </c:import>
+                  </c:catch>
+                  <%@ include file="/includes/catch.jsp" %>
                 </div>
               </div> <!-- /.content-box -->
             </div> <!-- /.col-lg-10 col-md-12 page-title -->
