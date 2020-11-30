@@ -1,5 +1,21 @@
 <%@ page pageEncoding="UTF-8" trimDirectiveWhitespaces="true" %>
 <%@ include file="/includes/core.jsp" %>
+<script>
+  function init (form){
+    for (i = 0; i < form.COUNTRY.options.length; i++) {
+      if (form.COUNTRY.options[i].value == "${requestScope.COUNTRY}") {
+        form.COUNTRY.options[i].selected = true;
+        break;
+      }
+    }
+    for (i = 0; i < form.STATE.options.length; i++) {
+      if (form.STATE.options[i].value == "${requestScope.STATE}") {
+        form.STATE.options[i].selected = true;
+        break;
+      }
+    }
+  }
+</script>
 <h4>Affiliate Account Information</h4>
 <p>Please use this form to update your Affiliate information. Please note: Affiliate payments are made to this address, so please double check!</p>
 <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -72,7 +88,7 @@
             <span>
               <label>Country:&nbsp;</label>
               <select name="COUNTRY" style="margin-bottom: 1rem;">
-                <c:import url="https://secure.bmtmicro.com/Templates/Import.CountryOptions"/>
+                ${requestScope.COUNTRYLIST}
               </select>
             </span>
             <br>
@@ -122,14 +138,14 @@
         <h5>Notification Settings</h5>
         <p>By default notifications will be sent upon a order being placed. Please uncheck if this is not desired.</p>
         <span>
-          <input type="hidden" name="ORDERNOTIFICATIONS" value="">
-          <input type="checkbox" style="margin-bottom: 1rem;"<c:if test="${ORDERNOTIFICATIONS_CHK==''}">checked</c:if>/>
+          <input type="hidden" name="ORDERNOTIFICATIONS" value="${requestScope.ORDERNOTIFICATIONS}">
+          <input type="checkbox" style="margin-bottom: 1rem;"<c:if test="${requestScope.ORDERNOTIFICATIONS!=0}"> checked</c:if>/>
           Receive Order Notifications
         </span>
         <br>
         <span>
-          <input type="hidden" name="VENDOREMAIL" value="">
-          <input type="checkbox" style="margin-bottom: 2rem;"<c:if test="${requestScope.VENDOREMAIL_CHK==''}">checked</c:if>/>
+          <input type="hidden" name="VENDOREMAIL" value="${requestScope.VENDOREMAIL}">
+          <input type="checkbox" style="margin-bottom: 2rem;"<c:if test="${requestScope.VENDOREMAIL!=0}"> checked</c:if>/>
           Receive Vendor Emails
         </span>
         <div class="controlbuttons">

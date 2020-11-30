@@ -19,28 +19,7 @@
     <script src="https://secure.bmtmicro.com/Templates/util.js"></script>
     <script src="https://affiliates.bmtmicro.com/js/main.js"></script>
     <script>
-      function init (form){
-        form.ORDERNOTIFICATIONS_CHK.checked = (${requestScope.ORDERNOTIFICATIONS} != 0);
-        form.VENDOREMAIL_CHK.checked = (${requestScope.VENDOREMAIL} != 0);
-
-        for (i = 0; i < form.COUNTRY.options.length; i++) {
-          if (form.COUNTRY.options[i].value == "${requestScope.COUNTRY}") {
-            form.COUNTRY.options[i].selected = true;
-            break;
-          }
-        }
-        for (i = 0; i < form.STATE.options.length; i++) {
-          if (form.STATE.options[i].value == "${requestScope.STATE}") {
-            form.STATE.options[i].selected = true;
-            break;
-          }
-        }
-      }
-
       function process(form) {
-        form.ORDERNOTIFICATIONS.value = form.ORDERNOTIFICATIONS_CHK.checked ? -1 : 0;
-        form.VENDOREMAIL.value = form.VENDOREMAIL_CHK.checked ? -1 : 0;
-
         if (isBlank (form.ADDRESS1.value)) {
           alert("You must input an Address");
           form.ADDRESS1.focus();
@@ -93,7 +72,7 @@
       }
     </script>
   </head>
-  <body onload="init (document.account)">
+  <body>
     <!-- Blue background -->
     <div class="blue-bg"></div>
 
@@ -122,6 +101,7 @@
     <%@ include file="/includes/bootstrap_bottom_scripts.html" %>
   </body>
   <script>
+    $(document).ready(function() { init (document.account), 'tableframe' });
     $('input[type=checkbox]').change(function(){
       $(this).prev('input[type=hidden]').val (this.checked ? -1 : 0);
     });
