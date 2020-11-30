@@ -107,7 +107,7 @@
               <c:import url="https://affiliates.bmtmicro.com/servlets/Affiliates.Account">
                 <c:param name="SESSIONID" value="${sessionid}" />
                 <c:param name="NEXT_PAGE" value="https://affiliates.bmtmicro.com/account-page.jsp" />
-                <c:param name="ERROR_PAGE" value="https://affiliates.bmtmicro.com/errorpage.jsp" />
+                <c:param name="ERROR_PAGE" value="https://affiliates.bmtmicro.com/error-page.jsp" />
                 <c:param name="ACTION" value="1" />
               </c:import>
             </div> <!-- /.col-lg-10 col-md-12 page-title -->

@@ -2,7 +2,7 @@
 <%@ include file="/includes/core.jsp" %>
 <form name="productlistform" method="post" action="https://affiliates.bmtmicro.com/servlets/Affiliates.ProductList">
   <input type="hidden" name="NEXT_PAGE" value="https://affiliates.bmtmicro.com/products-product-list-table.jsp" />
-  <input type="hidden" name="ERROR_PAGE" value="https://affiliates.bmtmicro.com/errorpage.jsp" />
+  <input type="hidden" name="ERROR_PAGE" value="https://affiliates.bmtmicro.com/error-page.jsp" />
   <input type="hidden" name="PAGE" value="1" />
   <input type="hidden" name="JOINEDONLY" value="${requestScope.JOINEDONLY}" />
   <input type="hidden" name="JOINVENDORID" value="0" />

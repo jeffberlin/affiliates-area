@@ -27,7 +27,7 @@
 <div class="tab-box">
   <form name="account" method="post" action="https://affiliates.bmtmicro.com/servlets/Affiliates.Account">
     <input type="hidden" name="NEXT_PAGE" value="https://affiliates.bmtmicro.com/main.jsp">
-    <input type="hidden" name="ERROR_PAGE" value="https://affiliates.bmtmicro.com/errorpage.jsp">
+    <input type="hidden" name="ERROR_PAGE" value="https://affiliates.bmtmicro.com/error-page.jsp">
     <input type="hidden" name="ACTION" value="11" />
     <div class="tab-content" id="myTabContent">
       <div class="tab-pane fade show active" id="accountTab" role="tabpanel" aria-labelledby="account-tab">

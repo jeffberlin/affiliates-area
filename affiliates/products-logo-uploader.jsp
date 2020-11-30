@@ -52,7 +52,7 @@
                   <img src="https://affiliates.bmtmicro.com/servlets/Affiliates.LogoImage?DEFAULT=https://secure.bmtmicro.com/Templates/TestLogo.png&AID=${requestScope.AID}" style="margin-bottom: 1rem;" />
                   <form name="LogoForm" enctype="multipart/form-data" method="post" action="https://affiliates.bmtmicro.com/servlets/Affiliates.LogoImage">
                     <input type="hidden" name="NEXT_PAGE" value="https://affiliates.bmtmicro.com/products-logo-uploader.jsp" />
-                    <input type="hidden" name="ERROR_PAGE" value="https://affiliates.bmtmicro.com/errorpage.jsp" />
+                    <input type="hidden" name="ERROR_PAGE" value="https://affiliates.bmtmicro.com/error-page.jsp" />
                     <span>
                       <label>Filename:&nbsp;</label>
                       <input type="file" name="FILENAME" size="50" style="margin-right: .5rem;" />

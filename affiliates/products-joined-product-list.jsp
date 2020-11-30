@@ -87,7 +87,7 @@
                     <c:import url="https://affiliates.bmtmicro.com/servlets/Affiliates.ProductList">
                       <c:param name="SESSIONID" value="${sessionid}" />
                       <c:param name="NEXT_PAGE" value="https://affiliates.bmtmicro.com/products-product-list-table.jsp" />
-                      <c:param name="ERROR_PAGE" value="https://affiliates.bmtmicro.com/errorpage.jsp" />
+                      <c:param name="ERROR_PAGE" value="https://affiliates.bmtmicro.com/error-page.jsp" />
                       <c:param name="JOINEDONLY" value="-1" />
                     </c:import>
                 </div> <!-- /#tableframe -->

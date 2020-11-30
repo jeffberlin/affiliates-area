@@ -58,7 +58,7 @@
               <div class="content-box overflow-auto">
                 <form name="daterange" action="https://affiliates.bmtmicro.com/servlets/Affiliates.SalesDetails" method="post">
                   <input type="hidden" name="NEXT_PAGE" value="https://affiliates.bmtmicro.com/reports-sales-summary-table.jsp" />
-                  <input type="hidden" name="ERROR_PAGE" value="https://affiliates.bmtmicro.com/errorpage.jsp" />
+                  <input type="hidden" name="ERROR_PAGE" value="https://affiliates.bmtmicro.com/error-page.jsp" />
                   <div class="table-header">
                     <span>
                       From:&nbsp;
@@ -79,7 +79,7 @@
                   <c:import url="https://affiliates.bmtmicro.com/servlets/Affiliates.SalesDetails">
                     <c:param name="SESSIONID" value="${sessionid}" />
                     <c:param name="NEXT_PAGE" value="https://affiliates.bmtmicro.com/reports-sales-summary-table.jsp" />
-                    <c:param name="ERROR_PAGE" value="https://affiliates.bmtmicro.com/errorpage.jsp" />
+                    <c:param name="ERROR_PAGE" value="https://affiliates.bmtmicro.com/error-page.jsp" />
                     <c:param name="DATEFROM" value="${bomDate}" />
                     <c:param name="DATETO" value="${toDate}" />
                   </c:import>
