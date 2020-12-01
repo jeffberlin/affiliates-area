@@ -35,8 +35,8 @@
     </a>
   </li>
   <li class="nav-item">
-    <a class="nav-link" id="password-tab" data-toggle="tab" href="#passwordTab" role="tab" aria-controls="password information" aria-selected="true">
-      Password Information
+    <a class="nav-link" id="password-tab" data-toggle="tab" href="#passwordTab" role="tab" aria-controls="password" aria-selected="true">
+      Password
     </a>
   </li>
 </ul>
@@ -154,7 +154,7 @@
         </div> <!-- /.controlbuttons -->
       </div> <!-- /.tab-pane #notificationTab -->
       <div class="tab-pane fade" id="passwordTab">
-        <h5>Password Information</h5>
+        <h5>Password</h5>
         <span>
           <label>Login Name:&nbsp;</label>
           <input name="LOGINNAME" type="hidden" value="${requestScope.LOGINNAME}" style="margin-bottom: 1rem;">${requestScope.LOGINNAME}</input>
