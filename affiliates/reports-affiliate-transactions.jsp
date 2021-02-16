@@ -73,7 +73,7 @@
             <jsp:include page="/includes/menuSidebar.jsp" />
             <div class="col-lg-10 col-md-12 page-title">
               <h4>Affiliate Transactions Report</h4>
-              <div class="content-box overflow-auto">
+              <div class="content-box d-flex flex-column overflow-auto">
                 <form name="transactions" method="post" action="https://affiliates.bmtmicro.com/servlets/Affiliates.Transactions">
                   <input type="hidden" name="NEXT_PAGE" value="https://affiliates.bmtmicro.com/reports-affiliate-transactions-table.jsp"/>
                   <input type="hidden" name="ERROR_PAGE" value="https://affiliates.bmtmicro.com/error-page.jsp"/>
