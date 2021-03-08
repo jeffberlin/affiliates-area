@@ -4,7 +4,7 @@
   <head>
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="viewport" content="width=1600, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -68,9 +68,9 @@
                   <br>
                   Payments options are USD check (US & Canada only), ACH (US&nbsp;Affiliates only), PayPal or wire transfer.
                   <br>
-                  By default accounts are set up as USD accounts. You can request your account to be specified as a EUR or GBP paid account.
+                  All payments are made in USD.
                   <br>
-                  Affiliates can choose wire transfer at the current wire transfer rate of 25.00 (USD, EUR or GBP) [Your account must have a $300 min. balance].
+                  Affiliates can choose wire transfer at the current wire transfer rate of $35.00 USD [Your account must have a $300 min. balance].
                   <br>
                   Payment minimums can be set for whatever amount you request. By default, wire transfers require a $300.00 balance, except on December 28th when all affiliates are paid regardless of amount owed for accounting purposes.
                   <br>
